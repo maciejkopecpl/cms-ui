@@ -1,0 +1,137 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "type": "icons",
+      "title": "What I do...",
+      "data": {
+        "items": [
+          {
+            "title": "Team lead",
+            "icon": "trophy"
+          },
+          {
+            "title": "SOFTWARE DESIGN",
+            "icon": "unfoldMoreVertical"
+          },
+          {
+            "title": "SOFTWARE DEVELOPMENT",
+            "icon": "settings"
+          },
+          {
+            "title": "CODE AUDIT",
+            "icon": "clipboardCheck"
+          },
+          {
+            "title": "SOLUTIONS ANALYSIS",
+            "icon": "lightbulb"
+          },
+          {
+            "title": "SOFTWARE TESTING",
+            "icon": "magnify"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "type": "wideImage",
+      "title": "Delivering High-Quality Software",
+      "data": {
+        "src": "https://maciejkopec.pl/wp-content/uploads/2018/02/mgafenpdcsw-bench-accounting.jpg"
+      }
+    },
+    {
+      "id": 3,
+      "type": "gallery",
+      "data": {
+        "items": [
+          {
+            "id": 0,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2018/02/Boostrap_logo_01.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 1,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2018/02/JQuery_logo_01.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 2,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2018/02/1400px-Slack_logo.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 3,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2018/02/Octocat_logo.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 4,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2018/02/Hibernate_logo.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 5,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2015/03/1500px_Jenkins_logo-e1519081072312.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 6,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2015/03/1500px_Jenkins_logo-e1519081072312.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 7,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2018/02/Hibernate_logo.png",
+            "alt": "Bootstrap"
+          },
+          {
+            "id": 8,
+            "src": "https://maciejkopec.pl/wp-content/uploads/2015/03/1500px_Jenkins_logo-e1519081072312.png",
+            "alt": "Bootstrap"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "skills",
+      "title": "My key skills",
+      "data": {
+        "items": [
+          {
+            "name": "Java",
+            "value": 1.0
+          },
+          {
+            "name": "HTML",
+            "value": 0.95
+          },
+          {
+            "name": "Javascript",
+            "value": 0.95
+          },
+          {
+            "name": "Agile",
+            "value": 0.95
+          },
+          {
+            "name": "JPA",
+            "value": 0.85
+          },
+          {
+            "name": "Design patterns",
+            "value": 0.95
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "contactForm",
+      "title": "Contact me",
+      "data": { "latitude": 37.774929, "longitude": -122.419418 }
+    }
+  ]
+}
