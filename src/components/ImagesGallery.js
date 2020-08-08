@@ -4,7 +4,7 @@ import Image from "material-ui-image";
 import PropTypes from "prop-types";
 import * as React from "react";
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.GATSBY_API_URL;
 
 export default function ImagesGallery(props) {
   const { items } = props;

@@ -64,7 +64,7 @@ export default function ReCaptcha(props) {
     setSuccess(false);
     setLoading(true);
     gRepCaptchaRef.current
-      .execute(process.env.RECAPTCHA_API_KEY, { action: "submit" })
+      .execute(process.env.GATSBY_RECAPTCHA_API_KEY, { action: "submit" })
       .then(onSubmit)
       .catch(() => {
         setSuccess(false);
@@ -80,7 +80,7 @@ export default function ReCaptcha(props) {
     if (typeof window !== `undefined`) {
       const script = document.createElement("script");
       script.onload = () => (gRepCaptchaRef.current = window.grecaptcha);
-      script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.RECAPTCHA_API_KEY}`;
+      script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_API_KEY}`;
       script.defer = true;
       script.async = true;
       document.body.appendChild(script);

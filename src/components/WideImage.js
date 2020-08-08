@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import { Parallax } from "react-parallax";
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.GATSBY_API_URL;
 
 export default function WideImage(props) {
   const { title, src } = props;

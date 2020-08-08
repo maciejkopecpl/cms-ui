@@ -29,7 +29,7 @@ export default function Map(props) {
   const createMap = useCallback(() => {
     const script = document.createElement("script");
     script.id = "googleMapsApi";
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_API_KEY}`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_GOOGLE_API_KEY}`;
     script.defer = true;
     script.async = true;
     script.onload = () => {

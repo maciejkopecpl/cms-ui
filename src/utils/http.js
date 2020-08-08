@@ -3,7 +3,7 @@ const commonHeaders = {
   "Content-Type": "application/json",
 };
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.GATSBY_API_URL;
 
 export const getData = async url =>
   await fetch(API_URL + url, { headers: commonHeaders }).then(res =>
