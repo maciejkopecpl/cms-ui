@@ -25,6 +25,7 @@ export default function ImagesGallery(props) {
               color={classes.background}
               imageStyle={{ height: "100%" }}
               alt={item.alt}
+              title={item.alt}
             />
           </Grid>
         ))}
