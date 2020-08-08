@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV || "development"}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: "Maciej Kopeć",
@@ -14,7 +18,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-material-ui",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-htaccess",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -32,7 +35,7 @@ module.exports = {
       options: {
         typeName: "Backend",
         fieldName: "backend",
-        url: "http://localhost:8080/graphql",
+        url: process.env.API_URL + "/graphql",
       },
     },
   ],
