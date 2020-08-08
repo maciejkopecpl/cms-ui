@@ -35,7 +35,7 @@ module.exports = {
       options: {
         typeName: "Backend",
         fieldName: "backend",
-        url: process.env.API_URL + "/graphql",
+        url: process.env.GATSBY_API_URL + "/graphql",
       },
     },
   ],
