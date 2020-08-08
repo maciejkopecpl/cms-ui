@@ -66,9 +66,10 @@ export default function ReCaptcha(props) {
     gRepCaptchaRef.current
       .execute(process.env.GATSBY_RECAPTCHA_API_KEY, { action: "submit" })
       .then(onSubmit)
-      .catch(() => {
+      .catch(e => {
         setSuccess(false);
         setLoading(false);
+        console.log.error(e);
       })
       .then(() => {
         setSuccess(true);
