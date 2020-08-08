@@ -15,4 +15,4 @@ export const postData = async (url, payload) =>
     method: "POST",
     headers: commonHeaders,
     body: JSON.stringify(payload),
-  }).then(res => res.json());
+  });

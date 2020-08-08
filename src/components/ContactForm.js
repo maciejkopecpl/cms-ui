@@ -129,16 +129,16 @@ export default function ContactForm(props) {
             />
             <ReCaptcha
               disabled={enableSendButton}
-              onSubmit={token => {
-                return sendMail(message, token).then(response => {
+              onSubmit={token =>
+                sendMail(message, token).then(response => {
                   if (response.ok) {
                     setSuccess(true);
                   } else {
                     setFailure(true);
                   }
                   setMessage({ ...emptyMessage });
-                });
-              }}
+                })
+              }
             />
           </form>
         </Grid>
