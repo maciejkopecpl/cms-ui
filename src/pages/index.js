@@ -1,6 +1,4 @@
 import { createMuiTheme } from "@material-ui/core";
-import Backdrop from "@material-ui/core/Backdrop";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
@@ -53,7 +51,6 @@ export default function Home({ data }) {
     backend: { modules } = {},
   } = data;
   const [style, setStyle] = useState(THEME_STYLES.light);
-  const [loading, setLoading] = useState(false);
 
   const palletTheme = createMuiTheme(
     {
@@ -96,27 +93,19 @@ export default function Home({ data }) {
           />
         </Helmet>
         <CssBaseline />
-        {loading ? (
-          <Backdrop open={loading}>
-            <CircularProgress color="inherit" />
-          </Backdrop>
-        ) : (
-          <>
-            <Container maxWidth={false} disableGutters={true}>
-              <Header
-                title={siteMetadata.title}
-                subTitle={siteMetadata.subTitle}
-                bgImage={mainHeader}
-              />
-              <main>{modules.map(component => buildComponent(component))}</main>
-              <Footer
-                title={siteMetadata.linkedIn.title}
-                linkedIn={siteMetadata.linkedIn.url}
-                github={siteMetadata.github.url}
-              />
-            </Container>
-          </>
-        )}
+        <Container maxWidth={false} disableGutters={true}>
+          <Header
+            title={siteMetadata.title}
+            subTitle={siteMetadata.subTitle}
+            bgImage={mainHeader}
+          />
+          <main>{modules.map(component => buildComponent(component))}</main>
+          <Footer
+            title={siteMetadata.linkedIn.title}
+            linkedIn={siteMetadata.linkedIn.url}
+            github={siteMetadata.github.url}
+          />
+        </Container>
       </ThemeProvider>
     </ThemeContext.Provider>
   );
