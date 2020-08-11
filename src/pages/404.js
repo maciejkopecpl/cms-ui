@@ -15,7 +15,6 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Parallax } from "react-parallax";
 import "../assets/global.css";
-import mainHeader from "../assets/main-header.jpg";
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -29,7 +28,14 @@ const useStyles = makeStyles(theme => ({
 export default function NotFound({ data }) {
   const {
     site: { siteMetadata },
+    allImageSharp: { edges },
   } = data;
+
+  const {
+    node: { fluid: image },
+  } = edges.find(
+    item => item.node.parent.id === `image-${siteMetadata.headerImageId}`
+  );
 
   const palletTheme = createMuiTheme({
     typography: {
@@ -56,7 +62,9 @@ export default function NotFound({ data }) {
         <Container maxWidth={false} disableGutters={true}>
           <Parallax
             strength={200}
-            bgImage={mainHeader}
+            bgImage={image.srcWebp}
+            bgImageSrcSet={image.srcSetWebp}
+            bgImageSizes={image.sizes}
             contentClassName={classes.overlay}
           >
             <Grid
@@ -140,6 +148,24 @@ export const query = graphql`
         }
         github {
           url
+        }
+        headerImageId
+      }
+    }
+    allImageSharp(filter: { parent: { id: { glob: "image-*" } } }) {
+      edges {
+        node {
+          id
+          parent {
+            ... on File {
+              id
+            }
+          }
+          fluid(webpQuality: 100, maxWidth: 2000) {
+            sizes
+            srcSetWebp
+            srcWebp
+          }
         }
       }
     }

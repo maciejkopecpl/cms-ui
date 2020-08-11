@@ -7,7 +7,7 @@ import * as React from "react";
 import { Parallax } from "react-parallax";
 
 export default function WideImage(props) {
-  const { title, src } = props;
+  const { title, imageId } = props;
 
   const {
     node: { fluid: image },
@@ -19,7 +19,7 @@ export default function WideImage(props) {
             id
             parent {
               ... on File {
-                name
+                id
               }
             }
             fluid(webpQuality: 100, maxWidth: 2000) {
@@ -31,7 +31,9 @@ export default function WideImage(props) {
         }
       }
     }
-  `).allImageSharp.edges.find(item => item.node.parent.name === src);
+  `).allImageSharp.edges.find(
+    item => item.node.parent.id === `image-${imageId}`
+  );
 
   return (
     <Container maxWidth={false} disableGutters={true}>
@@ -65,5 +67,5 @@ export default function WideImage(props) {
 
 WideImage.propTypes = {
   title: PropTypes.string,
-  src: PropTypes.string.isRequired,
+  imageId: PropTypes.string.isRequired,
 };

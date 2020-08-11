@@ -8,6 +8,7 @@ import {
 } from "mdi-material-ui/light/index.es";
 import React from "react";
 import ContactForm from "../components/ContactForm";
+import Header from "../components/Header";
 import IconsGallery from "../components/IconsGallery";
 import ImagesGallery from "../components/ImagesGallery";
 import Skills from "../components/Skills";
@@ -26,7 +27,11 @@ export const buildComponent = component => {
       );
     case "WIDE_IMAGE":
       return (
-        <WideImage key={component.id} title={component.title} src={data.src} />
+        <WideImage
+          key={component.id}
+          title={component.title}
+          imageId={data.imageId}
+        />
       );
     case "GALLERY":
       return <ImagesGallery key={component.id} items={data.items} />;
@@ -41,6 +46,15 @@ export const buildComponent = component => {
           title={component.title}
           latitude={data.latitude}
           longitude={data.longitude}
+        />
+      );
+    case "HEADER":
+      return (
+        <Header
+          key={component.id}
+          title={component.title}
+          subTitle={data.subTitle}
+          imageId={data.imageId}
         />
       );
     default:

@@ -6,18 +6,16 @@ import "@openfonts/raleway_latin-ext";
 import React, { createContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import { THEME_STYLES } from "../utils/constants";
 import { buildComponent } from "../utils/factories";
 import { graphql } from "gatsby";
 import "../assets/global.css";
-import mainHeader from "../assets/main-header.jpg";
 
 const commonTheme = {
   overrides: {
     MuiCssBaseline: {
       "@global": {
-        "main > div": {
+        "main > div:not(:first-child)": {
           marginTop: "5em",
         },
       },
@@ -94,11 +92,6 @@ export default function Home({ data }) {
         </Helmet>
         <CssBaseline />
         <Container maxWidth={false} disableGutters={true}>
-          <Header
-            title={siteMetadata.title}
-            subTitle={siteMetadata.subTitle}
-            bgImage={mainHeader}
-          />
           <main>{modules.map(component => buildComponent(component))}</main>
           <Footer
             title={siteMetadata.linkedIn.title}

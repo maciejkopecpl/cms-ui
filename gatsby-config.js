@@ -14,6 +14,7 @@ module.exports = {
     github: {
       url: "https://github.com",
     },
+    headerImageId: "5f320a230bdf871d18542799",
   },
   plugins: [
     "gatsby-plugin-material-ui",

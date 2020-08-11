@@ -2,6 +2,9 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV || "development"}`,
 });
 
+const fetch = require(`node-fetch`);
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
+
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith("develop")) {
     actions.setWebpackConfig({
@@ -14,8 +17,6 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
   }
 };
 
-const fetch = require(`node-fetch`);
-
 exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
@@ -24,7 +25,6 @@ exports.sourceNodes = async ({
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
     },
     body: JSON.stringify({
       query: "{ images { image, filename, contentType } }",
@@ -45,8 +45,6 @@ exports.sourceNodes = async ({
   });
 };
 
-const { createRemoteFileNode } = require("gatsby-source-filesystem");
-
 exports.onCreateNode = async ({ node, actions, store, cache }) => {
   if (node.internal.type !== "Images") {
     return;
@@ -54,23 +52,29 @@ exports.onCreateNode = async ({ node, actions, store, cache }) => {
 
   const { createNode, createNodeField } = actions;
 
-  const images = await Promise.all(
-    node.images.map(file =>
-      createRemoteFileNode({
-        url: `${process.env.GATSBY_API_URL}/images/${file.image}`,
-        parentNodeId: node.id,
-        store,
-        cache,
-        createNode,
-        createNodeId: () => `image-${file.image}`,
-        contentType: file.contentType,
-        ext: `.${file.filename.split(".").pop()}`,
-        internal: {
-          mediaType: file.contentType,
-        },
-      })
-    )
-  );
+  const images = node.images.map(async file => {
+    const remoteFileNode = await createRemoteFileNode({
+      url: `${process.env.GATSBY_API_URL}/images/${file.image}`,
+      parentNodeId: node.id,
+      store,
+      cache,
+      createNode,
+      createNodeId: () => `image-${file.image}`,
+      contentType: file.contentType,
+      ext: `.${file.filename.split(".").pop()}`,
+      internal: {
+        mediaType: file.contentType,
+      },
+    });
+
+    await createNodeField({
+      node: remoteFileNode,
+      name: "filename",
+      value: file.filename,
+    });
+
+    return remoteFileNode;
+  });
 
   await createNodeField({
     node,
