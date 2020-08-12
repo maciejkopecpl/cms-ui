@@ -15,6 +15,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Parallax } from "react-parallax";
 import "../assets/global.css";
+import { useImageSharp } from "../utils/graphQlQueries";
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -28,14 +29,9 @@ const useStyles = makeStyles(theme => ({
 export default function NotFound({ data }) {
   const {
     site: { siteMetadata },
-    allImageSharp: { edges },
   } = data;
 
-  const {
-    node: { fluid: image },
-  } = edges.find(
-    item => item.node.parent.id === `image-${siteMetadata.headerImageId}`
-  );
+  const image = useImageSharp(siteMetadata.headerImageId);
 
   const palletTheme = createMuiTheme({
     typography: {
@@ -62,9 +58,9 @@ export default function NotFound({ data }) {
         <Container maxWidth={false} disableGutters={true}>
           <Parallax
             strength={200}
-            bgImage={image.srcWebp}
-            bgImageSrcSet={image.srcSetWebp}
-            bgImageSizes={image.sizes}
+            bgImage={image?.srcWebp}
+            bgImageSrcSet={image?.srcSetWebp}
+            bgImageSizes={image?.sizes}
             contentClassName={classes.overlay}
           >
             <Grid

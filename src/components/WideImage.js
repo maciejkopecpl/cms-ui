@@ -1,47 +1,23 @@
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { Parallax } from "react-parallax";
+import { useImageSharp } from "../utils/graphQlQueries";
 
 export default function WideImage(props) {
   const { title, imageId } = props;
 
-  const {
-    node: { fluid: image },
-  } = useStaticQuery(graphql`
-    query {
-      allImageSharp(filter: { parent: { id: { glob: "image-*" } } }) {
-        edges {
-          node {
-            id
-            parent {
-              ... on File {
-                id
-              }
-            }
-            fluid(webpQuality: 100, maxWidth: 2000) {
-              sizes
-              srcSetWebp
-              srcWebp
-            }
-          }
-        }
-      }
-    }
-  `).allImageSharp.edges.find(
-    item => item.node.parent.id === `image-${imageId}`
-  );
+  const image = useImageSharp(imageId);
 
   return (
     <Container maxWidth={false} disableGutters={true}>
       <Parallax
         strength={450}
-        bgImage={image.srcWebp}
-        bgImageSrcSet={image.srcSetWebp}
-        bgImageSizes={image.sizes}
+        bgImage={image?.srcWebp}
+        bgImageSrcSet={image?.srcSetWebp}
+        bgImageSizes={image?.sizes}
       >
         <Grid
           container
