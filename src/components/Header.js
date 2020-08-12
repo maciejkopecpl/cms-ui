@@ -20,7 +20,7 @@ export default function Header(props) {
   const classes = useStyles();
   const { title, subTitle, imageId } = props;
 
-  const image = useImageSharp(imageId);
+  const image = useImageSharp(imageId, "header");
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"), {

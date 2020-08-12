@@ -52,7 +52,7 @@ exports.onCreateNode = async ({ node, actions, store, cache }) => {
 
   const { createNode, createNodeField } = actions;
 
-  const images = node.images.map(async file => {
+  const images = await node.images.map(async file => {
     const remoteFileNode = await createRemoteFileNode({
       url: `${process.env.GATSBY_API_URL}/images/${file.image}`,
       parentNodeId: node.id,

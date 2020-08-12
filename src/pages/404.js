@@ -31,7 +31,7 @@ export default function NotFound({ data }) {
     site: { siteMetadata },
   } = data;
 
-  const image = useImageSharp(siteMetadata.headerImageId);
+  const image = useImageSharp(siteMetadata.headerImageId, "404");
 
   const palletTheme = createMuiTheme({
     typography: {
