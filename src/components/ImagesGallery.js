@@ -1,10 +1,9 @@
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import * as React from "react";
-import Image from "./Image"
+import ImageWrapper from "./Image"
 
 const mapById = (accumulator, { node }) => ({
   [node.id]: { url: node.publicURL },
@@ -32,7 +31,7 @@ export default function ImagesGallery(props) {
       <Grid container justify="center" alignItems="center" spacing={10}>
         {items.map((item, index) => (
           <Grid item xs={6} md={2} key={index}>
-            <Image
+            <ImageWrapper
               src={data[`image-${item.src}`]?.url}
               alt={item.alt}
             />

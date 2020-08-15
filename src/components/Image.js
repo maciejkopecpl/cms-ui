@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles"
+import Image from "material-ui-image"
 import PropTypes from "prop-types"
 import React, { useEffect, useRef } from "react"
 
@@ -6,7 +7,7 @@ const useStyles = makeStyles(theme => ({
   background: theme.palette.background.default
 }))
 
-export default function Image(props) {
+export default function ImageWrapper(props) {
   const { src, alt } = props
   const classes = useStyles()
   const imageRef = useRef(null)
@@ -30,7 +31,7 @@ export default function Image(props) {
   )
 }
 
-Image.propTypes = {
+ImageWrapper.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string
 }
