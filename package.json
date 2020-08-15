@@ -35,7 +35,8 @@
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.26.2",
     "react-parallax": "^3.0.3",
-    "react-typography": "^0.16.19"
+    "react-typography": "^0.16.19",
+    "gatsby-plugin-debug-build": "^1.0.0"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.12.0",
