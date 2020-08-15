@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles"
-import Image from "material-ui-image"
 import PropTypes from "prop-types"
 import React, { useEffect, useRef } from "react"
 
