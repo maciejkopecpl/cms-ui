@@ -25,7 +25,7 @@ module.exports = {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Maciej Kopeć - Software Engineer",
-        short_name: "MaciejKopec.pl test",
+        short_name: "MaciejKopec.pl",
         start_url: "/",
         background_color: "#212121",
         theme_color: "#f50057",
