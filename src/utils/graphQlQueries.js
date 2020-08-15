@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-export const useImageSharp = (id, caller) => {
+export const useImageSharp = id => {
   const data = useStaticQuery(graphql`
     query {
       allImageSharp(filter: { parent: { id: { glob: "image-*" } } }) {
@@ -22,8 +22,6 @@ export const useImageSharp = (id, caller) => {
       }
     }
   `);
-
-  console.log(`ID => ${id} caller => ${caller}`);
 
   return data.allImageSharp.edges.find(
     item => item.node.parent.id === `image-${id}`
