@@ -19,7 +19,10 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 
 exports.sourceNodes = async ({
   actions: { createNode, createNodeField },
-  createContentDigest, node, store, cache
+  createContentDigest,
+  node,
+  store,
+  cache,
 }) => {
   const result = await fetch(`${process.env.GATSBY_API_URL}/graphql`, {
     method: "POST",
@@ -46,36 +49,35 @@ exports.sourceNodes = async ({
     },
   });
 
-  for (const image of result){
+  for (const image of result) {
     console.log("Processing image");
     console.log(image);
+
     const remoteFileNode = await createRemoteFileNode({
       url: `${process.env.GATSBY_API_URL}/images/${image.image}`,
-      parentNodeId: node.id,
       store,
       cache,
       createNode,
       createNodeId: () => `image-${image.image}`,
       contentType: image.contentType,
       ext: `.${image.filename.split(".").pop()}`,
-      internal: {
-        mediaType: image.contentType,
-      },
+      // internal: {
+      //   mediaType: image.contentType,
+      // },
     });
 
     image.localFile___NODE = image.id;
 
-    await createNodeField({
-      node: remoteFileNode,
-      name: "filename",
-      value: image.filename,
-    });
+    // await createNodeField({
+    //   node: remoteFileNode,
+    //   name: "filename",
+    //   value: image.filename,
+    // });
   }
 
-  await createNodeField({
-    node,
-    name: "images",
-    value: result,
-  });
-
+  // await createNodeField({
+  //   node,
+  //   name: "images",
+  //   value: result,
+  // });
 };
