@@ -21,7 +21,6 @@ export default function Header(props) {
   const { title, subTitle, imageId } = props;
 
   const image = useImageSharp(imageId);
-
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
     defaultMatches: true,

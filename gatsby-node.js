@@ -20,8 +20,10 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
+  store,
+  cache,
 }) => {
-  const result = await fetch(`${process.env.GATSBY_API_URL}/graphql`, {
+  const images = await fetch(`${process.env.GATSBY_API_URL}/graphql`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,57 +34,30 @@ exports.sourceNodes = async ({
   })
     .then(r => r.json())
     .then(r => r.data.images);
+  console.log("Fetched images: ", images);
 
   createNode({
-    images: result,
+    images: images,
     id: `cms-images`,
     parent: null,
     children: [],
     internal: {
       type: `Images`,
-      contentDigest: createContentDigest(result),
+      contentDigest: createContentDigest(images),
     },
   });
-};
 
-exports.onCreateNode = async ({ node, actions, store, cache }) => {
-  if (node.internal.type !== "Images") {
-    return;
-  }
+  for (const image of images) {
+    console.log(`Processing image:`, image);
 
-  const { createNode, createNodeField } = actions;
-
-  const images = node.images.map(async file => {
-    const remoteFileNode = await createRemoteFileNode({
-      url: `${process.env.GATSBY_API_URL}/images/${file.image}`,
-      parentNodeId: node.id,
+    await createRemoteFileNode({
+      url: `${process.env.GATSBY_API_URL}/images/${image.image}`,
       store,
       cache,
       createNode,
-      createNodeId: () => `image-${file.image}`,
-      contentType: file.contentType,
-      ext: `.${file.filename.split(".").pop()}`,
-      internal: {
-        mediaType: file.contentType,
-      },
+      createNodeId: () => `image-${image.image}`,
+      contentType: image.contentType,
+      ext: `.${image.filename.split(".").pop()}`,
     });
-
-    await createNodeField({
-      node: remoteFileNode,
-      name: "filename",
-      value: file.filename,
-    });
-
-    return remoteFileNode;
-  });
-
-  await createNodeField({
-    node,
-    name: "images",
-    value: images,
-  });
-
-  node.fields.images.forEach((image, i) => {
-    image.localFile___NODE = images[i].id;
-  });
+  }
 };

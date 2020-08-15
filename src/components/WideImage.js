@@ -8,7 +8,6 @@ import { useImageSharp } from "../utils/graphQlQueries";
 
 export default function WideImage(props) {
   const { title, imageId } = props;
-
   const image = useImageSharp(imageId);
 
   return (
