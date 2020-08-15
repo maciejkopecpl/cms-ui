@@ -50,6 +50,8 @@ exports.sourceNodes = async ({
     console.log("Processing image");
     console.log(data);
     const {image} = data;
+    console.log(image);
+
     const remoteFileNode = await createRemoteFileNode({
       url: `${process.env.GATSBY_API_URL}/images/${image.image}`,
       parentNodeId: node.id,
