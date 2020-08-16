@@ -3,12 +3,14 @@ import Grid from "@material-ui/core/Grid";
 import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import * as React from "react";
-import ImageWrapper from "./Image"
+import handleViewport from "react-in-viewport";
+import ImageWrapper from "./ImageWrapper";
 
 const mapById = (accumulator, { node }) => ({
   [node.id]: { url: node.publicURL },
   ...accumulator,
 });
+const LazyImage = handleViewport(ImageWrapper, {}, { disconnectOnLeave: true });
 
 export default function ImagesGallery(props) {
   const { items } = props;
@@ -31,10 +33,7 @@ export default function ImagesGallery(props) {
       <Grid container justify="center" alignItems="center" spacing={10}>
         {items.map((item, index) => (
           <Grid item xs={6} md={2} key={index}>
-            <ImageWrapper
-              src={data[`image-${item.src}`]?.url}
-              alt={item.alt}
-            />
+            <LazyImage src={data[`image-${item.src}`]?.url} alt={item.alt} />
           </Grid>
         ))}
       </Grid>
