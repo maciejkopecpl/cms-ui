@@ -15,7 +15,7 @@ export default function WideImage(props) {
 
   return (
     <Container maxWidth={false} disableGutters={true} ref={ref}>
-      {!inView ? (
+      {inView ? (
         <Parallax
           strength={450}
           bgImage={image?.srcWebp}
