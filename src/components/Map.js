@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useCallback, useContext, useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
 import { ThemeContext } from "../pages";
 import { THEME_STYLES } from "../utils/constants";
 
@@ -7,9 +8,14 @@ export default function Map(props) {
   const googleMapRef = useRef();
   const { latitude, longitude } = props;
   const { style } = useContext(ThemeContext);
+  const [ref, inView] = useInView({ triggerOnce: true });
 
   const initializeMap = useCallback(() => {
-    if (typeof window !== `undefined` && typeof window.google !== "undefined") {
+    if (
+      inView &&
+      typeof window !== `undefined` &&
+      typeof window.google !== "undefined"
+    ) {
       googleMapRef.current = new window.google.maps.Map(
         document.getElementById("map"),
         {
@@ -24,33 +30,41 @@ export default function Map(props) {
         map: googleMapRef.current,
       });
     }
-  }, [latitude, longitude, style]);
+  }, [latitude, longitude, style, inView]);
 
   const createMap = useCallback(() => {
-    const script = document.createElement("script");
-    script.id = "googleMapsApi";
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_GOOGLE_API_KEY}`;
-    script.defer = true;
-    script.async = true;
-    script.onload = () => {
-      initializeMap();
-    };
+    if (inView) {
+      const script = document.createElement("script");
+      script.id = "googleMapsApi";
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_GOOGLE_API_KEY}`;
+      script.defer = true;
+      script.async = true;
+      script.onload = () => {
+        initializeMap();
+      };
 
-    document.body.appendChild(script);
-  }, [initializeMap]);
+      document.body.appendChild(script);
+    }
+  }, [initializeMap, inView]);
 
   useEffect(
     () =>
-      document.getElementById("googleMapsApi") ? initializeMap() : createMap(),
-    [initializeMap, createMap]
+      inView && document.getElementById("googleMapsApi")
+        ? initializeMap()
+        : createMap(),
+    [inView, initializeMap, createMap]
   );
 
   return (
-    <div
-      id="map"
-      ref={googleMapRef}
-      style={{ width: "100%", height: "100%" }}
-    />
+    <div ref={ref}>
+      {inView && (
+        <div
+          id="map"
+          ref={googleMapRef}
+          style={{ width: "100%", height: "460px" }}
+        />
+      )}
+    </div>
   );
 }
 
