@@ -2,7 +2,7 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "material-ui-image";
 import PropTypes from "prop-types";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 const useStyles = makeStyles(theme => ({
@@ -10,16 +10,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ImageWrapper(props) {
-  const { src, alt, inViewport, forwardedRef: inViewportRef } = props;
+  const { src, alt } = props;
   const classes = useStyles();
-  const imageRef = useRef(null);
   const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    if (inViewport && !imageRef.current.state.imageLoaded) {
-      imageRef.current.handleLoadImage();
-    }
-  }, [imageRef]);
+  const [ref, inViewport] = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inViewport) {
@@ -28,7 +22,7 @@ export default function ImageWrapper(props) {
   }, [inViewport]);
 
   return (
-    <div ref={inViewportRef}>
+    <div ref={ref}>
       {loaded ? (
         <Image
           src={src}
@@ -36,7 +30,6 @@ export default function ImageWrapper(props) {
           imageStyle={{ height: "100%" }}
           alt={alt}
           title={alt}
-          ref={imageRef}
         />
       ) : (
         <Box height={140} />
