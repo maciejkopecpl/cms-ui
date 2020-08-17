@@ -18,7 +18,7 @@ export default function Map(props) {
   const googleMapRef = useRef();
   const { latitude, longitude } = props;
   const { style } = useContext(ThemeContext);
-  const [ref, inView] = useInView({ triggerOnce: true });
+  const [inViewRef, inView] = useInView({ triggerOnce: true });
   const [loading, setLoading] = useState(true);
 
   const drawMap = useCallback(() => {
@@ -68,7 +68,7 @@ export default function Map(props) {
   );
 
   return (
-    <Container ref={ref} disableGutters={true}>
+    <Container ref={inViewRef} disableGutters={true}>
       {!loading && inView && (
         <div
           id="map"
