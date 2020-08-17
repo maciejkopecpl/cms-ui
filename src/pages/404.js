@@ -15,7 +15,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Parallax } from "react-parallax";
 import "../assets/global.css";
-import { useImageSharp } from "../utils/graphQlQueries";
+import { useImageSharp } from "../utils/useImageSharp";
 
 const useStyles = makeStyles(theme => ({
   header: {
