@@ -1,19 +1,12 @@
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import { useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { buildIcon } from "../utils/factories";
 
 export default function IconsGallery(props) {
   const { title, items } = props;
-
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
-    defaultMatches: true,
-  });
 
   return (
     <Container maxWidth={"lg"}>
@@ -26,14 +19,9 @@ export default function IconsGallery(props) {
       >
         {title}
       </Typography>
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        spacing={isMobile ? 5 : 10}
-      >
+      <Grid container justify="center" alignItems="center" spacing={0}>
         {items.map(item => (
-          <Grid item xs={12} md={4} key={item.icon}>
+          <Grid item xs={12} md={4} key={item.icon} style={{ padding: "3em" }}>
             <Grid container justify="center" alignItems="center">
               <Grid item xs={12} md={12} style={{ textAlign: "center" }}>
                 {buildIcon(item.icon)}

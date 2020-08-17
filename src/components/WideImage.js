@@ -25,6 +25,8 @@ export default function WideImage(props) {
       style={{
         background: style === THEME_STYLES.dark ? grey[900] : grey[300],
         minHeight: 600,
+        paddingTop: 0,
+        marginTop: "5em",
       }}
     >
       {inView && (

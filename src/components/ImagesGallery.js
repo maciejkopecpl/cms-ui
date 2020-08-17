@@ -10,7 +10,7 @@ export default function ImagesGallery(props) {
   const images = useAllImages();
 
   return (
-    <Container maxWidth={"lg"}>
+    <Container maxWidth={"lg"} style={{ overflow: "hidden" }}>
       <Grid container justify="center" alignItems="center" spacing={10}>
         {items.map((item, index) => (
           <Grid item xs={6} md={2} key={index}>
