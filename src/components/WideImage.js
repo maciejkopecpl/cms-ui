@@ -1,21 +1,33 @@
-import Box from "@material-ui/core/Box";
+import grey from "@material-ui/core/colors/grey";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
+import { useContext } from "react";
 import * as React from "react";
 import { useInView } from "react-intersection-observer";
 import { Parallax } from "react-parallax";
-import { useImageSharp } from "../utils/graphQlQueries";
+import { ThemeContext } from "../pages";
+import { THEME_STYLES } from "../utils/constants";
+import { useImageSharp } from "../utils/useImageSharp";
 
 export default function WideImage(props) {
   const { title, imageId } = props;
   const image = useImageSharp(imageId);
   const [ref, inView] = useInView({ triggerOnce: true });
+  const { style } = useContext(ThemeContext);
 
   return (
-    <Container maxWidth={false} disableGutters={true} ref={ref}>
-      {inView ? (
+    <Container
+      maxWidth={false}
+      disableGutters={true}
+      ref={ref}
+      style={{
+        background: style === THEME_STYLES.dark ? grey[900] : grey[300],
+        minHeight: 600,
+      }}
+    >
+      {inView && (
         <Parallax
           strength={450}
           bgImage={image?.srcWebp}
@@ -40,8 +52,6 @@ export default function WideImage(props) {
             </Grid>
           </Grid>
         </Parallax>
-      ) : (
-        <Box height={600} />
       )}
     </Container>
   );

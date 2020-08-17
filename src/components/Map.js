@@ -1,5 +1,15 @@
+import { Container } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import grey from "@material-ui/core/colors/grey";
 import PropTypes from "prop-types";
-import React, { useCallback, useContext, useEffect, useRef } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from "../pages";
 import { THEME_STYLES } from "../utils/constants";
@@ -9,8 +19,9 @@ export default function Map(props) {
   const { latitude, longitude } = props;
   const { style } = useContext(ThemeContext);
   const [ref, inView] = useInView({ triggerOnce: true });
+  const [loading, setLoading] = useState(true);
 
-  const initializeMap = useCallback(() => {
+  const drawMap = useCallback(() => {
     if (
       inView &&
       typeof window !== `undefined` &&
@@ -32,7 +43,7 @@ export default function Map(props) {
     }
   }, [latitude, longitude, style, inView]);
 
-  const createMap = useCallback(() => {
+  const initializeGoogleMapsApi = useCallback(() => {
     if (inView) {
       const script = document.createElement("script");
       script.id = "googleMapsApi";
@@ -40,31 +51,45 @@ export default function Map(props) {
       script.defer = true;
       script.async = true;
       script.onload = () => {
-        initializeMap();
+        // setLoading(false);
+        // drawMap();
+        setTimeout(() => setLoading(false), 1000);
+        setTimeout(() => drawMap(), 1500);
       };
 
       document.body.appendChild(script);
     }
-  }, [initializeMap, inView]);
+  }, [drawMap, inView]);
 
   useEffect(
     () =>
       inView && document.getElementById("googleMapsApi")
-        ? initializeMap()
-        : createMap(),
-    [inView, initializeMap, createMap]
+        ? drawMap()
+        : initializeGoogleMapsApi(),
+    [inView, drawMap, initializeGoogleMapsApi]
   );
 
   return (
-    <div ref={ref}>
-      {inView && (
+    <Container ref={ref}>
+      {!loading && inView && (
         <div
           id="map"
           ref={googleMapRef}
           style={{ width: "100%", height: "460px" }}
         />
       )}
-    </div>
+      {loading && (
+        <Box
+          display="flex"
+          height={460}
+          bgcolor={style === THEME_STYLES.dark ? grey[900] : grey[700]}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <CircularProgress color="secondary" />
+        </Box>
+      )}
+    </Container>
   );
 }
 

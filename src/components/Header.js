@@ -5,7 +5,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { Parallax } from "react-parallax";
-import { useImageSharp } from "../utils/graphQlQueries";
+import { useImageSharp } from "../utils/useImageSharp";
 
 const useStyles = makeStyles(theme => ({
   header: {
