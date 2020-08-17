@@ -14,14 +14,14 @@ import { useImageSharp } from "../utils/useImageSharp";
 export default function WideImage(props) {
   const { title, imageId } = props;
   const image = useImageSharp(imageId);
-  const [ref, inView] = useInView({ triggerOnce: true });
+  const [inViewRef, inView] = useInView({ triggerOnce: true });
   const { style } = useContext(ThemeContext);
 
   return (
     <Container
       maxWidth={false}
       disableGutters={true}
-      ref={ref}
+      ref={inViewRef}
       style={{
         background: style === THEME_STYLES.dark ? grey[900] : grey[300],
         minHeight: 600,

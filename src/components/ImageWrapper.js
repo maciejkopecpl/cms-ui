@@ -13,7 +13,7 @@ export default function ImageWrapper(props) {
   const { src, alt } = props;
   const classes = useStyles();
   const [loaded, setLoaded] = useState(false);
-  const [ref, inViewport] = useInView({ triggerOnce: true });
+  const [inViewRef, inViewport] = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inViewport) {
@@ -22,7 +22,7 @@ export default function ImageWrapper(props) {
   }, [inViewport]);
 
   return (
-    <div ref={ref}>
+    <div ref={inViewRef}>
       {loaded ? (
         <Image
           src={src}

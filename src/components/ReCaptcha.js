@@ -9,6 +9,7 @@ import OpenInNew from "@material-ui/icons/OpenInNew";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import { useIsMobile } from "../utils/useIsMobile";
 
 const useStyles = makeStyles(theme => ({
@@ -46,6 +47,7 @@ export default function ReCaptcha(props) {
   const [success, setSuccess] = useState(false);
   const theme = useTheme();
   const isMobile = useIsMobile();
+  const [inViewRef, inView] = useInView({ triggerOnce: true });
 
   const buttonClassname = clsx({
     [classes.buttonSuccess]: success,
@@ -75,7 +77,7 @@ export default function ReCaptcha(props) {
   };
 
   useEffect(() => {
-    if (typeof window !== `undefined`) {
+    if (inView && typeof window !== `undefined`) {
       const script = document.createElement("script");
       script.onload = () => (gRepCaptchaRef.current = window.grecaptcha);
       script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_API_KEY}`;
@@ -83,7 +85,7 @@ export default function ReCaptcha(props) {
       script.async = true;
       document.body.appendChild(script);
     }
-  }, []);
+  }, [inView]);
 
   return (
     <>
@@ -92,6 +94,7 @@ export default function ReCaptcha(props) {
         style={{ margin: isMobile ? 0 : theme.spacing(1) }}
       >
         <Button
+          ref={inViewRef}
           variant="contained"
           color="secondary"
           disabled={loading || disabled}

@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 export default function SkillBar(props) {
   const { skillValue } = props;
   const classes = useStyles();
-  const [ref, inView] = useInView({ triggerOnce: true });
+  const [inViewRef, inView] = useInView({ triggerOnce: true });
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function SkillBar(props) {
     <>
       <LinearProgress
         classes={{ bar1Determinate: classes.customTransition }}
-        ref={ref}
+        ref={inViewRef}
         variant="determinate"
         value={progress}
         color="secondary"
