@@ -18,7 +18,7 @@ export default function Skills(props) {
   const classes = useStyles();
 
   return (
-    <Container maxWidth={"lg"}>
+    <Container maxWidth={"lg"} style={{ overflow: "hidden" }}>
       <Typography
         component="h2"
         variant="h4"

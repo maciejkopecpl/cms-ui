@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { postData } from "../utils/http";
+import { useIsMobile } from "../utils/useIsMobile";
 import Map from "./Map";
 import ReCaptcha from "./ReCaptcha";
 
@@ -61,6 +62,7 @@ export default function ContactForm(props) {
   const [success, setSuccess] = useState(false);
   const [failure, setFailure] = useState(false);
   const [enableSendButton, setEnableSendButton] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => setEnableSendButton(hasInvalidInput(message)), [message]);
 
@@ -73,9 +75,14 @@ export default function ContactForm(props) {
   };
 
   return (
-    <Container maxWidth={"lg"}>
-      <Grid container justify="center" alignItems="stretch" spacing={5}>
-        <Grid item xs={12} md={7}>
+    <Container maxWidth={"lg"} disableGutters={isMobile}>
+      <Grid
+        container
+        justify="center"
+        alignItems="stretch"
+        spacing={isMobile ? 0 : 5}
+      >
+        <Grid item xs={12} md={7} style={{ margin: isMobile ? "0 1.7em" : 0 }}>
           <form noValidate>
             <Typography
               component="h2"

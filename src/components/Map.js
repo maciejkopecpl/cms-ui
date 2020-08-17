@@ -51,10 +51,8 @@ export default function Map(props) {
       script.defer = true;
       script.async = true;
       script.onload = () => {
-        // setLoading(false);
-        // drawMap();
-        setTimeout(() => setLoading(false), 1000);
-        setTimeout(() => drawMap(), 1500);
+        setLoading(false);
+        drawMap();
       };
 
       document.body.appendChild(script);
@@ -70,7 +68,7 @@ export default function Map(props) {
   );
 
   return (
-    <Container ref={ref}>
+    <Container ref={ref} disableGutters={true}>
       {!loading && inView && (
         <div
           id="map"

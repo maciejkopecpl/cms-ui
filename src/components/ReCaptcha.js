@@ -5,15 +5,14 @@ import green from "@material-ui/core/colors/green";
 import pink from "@material-ui/core/colors/pink";
 import Link from "@material-ui/core/Link";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import OpenInNew from "@material-ui/icons/OpenInNew";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "../utils/useIsMobile";
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
-    margin: theme.spacing(1),
     position: "relative",
   },
   buttonSuccess: {
@@ -46,9 +45,7 @@ export default function ReCaptcha(props) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
-    defaultMatches: true,
-  });
+  const isMobile = useIsMobile();
 
   const buttonClassname = clsx({
     [classes.buttonSuccess]: success,
@@ -90,7 +87,10 @@ export default function ReCaptcha(props) {
 
   return (
     <>
-      <div className={classes.wrapper}>
+      <div
+        className={classes.wrapper}
+        style={{ margin: isMobile ? 0 : theme.spacing(1) }}
+      >
         <Button
           variant="contained"
           color="secondary"
@@ -104,7 +104,10 @@ export default function ReCaptcha(props) {
           <CircularProgress size={24} className={buttonProgressMobile} />
         )}
       </div>
-      <Box marginTop={theme.spacing(0.5)}>
+      <Box
+        marginTop={theme.spacing(0.5)}
+        marginBottom={isMobile ? theme.spacing(0.5) : 0}
+      >
         <Typography color={"textSecondary"} variant={"caption"}>
           This site is protected by reCAPTCHA and the Google{" "}
           <Link
@@ -114,8 +117,8 @@ export default function ReCaptcha(props) {
             target="_blank"
           >
             Privacy Policy <OpenInNew fontSize={"inherit"} />
-          </Link>{" "}
-          and{" "}
+          </Link>
+          and
           <Link
             color={"textPrimary"}
             href="https://policies.google.com/terms"
@@ -123,7 +126,7 @@ export default function ReCaptcha(props) {
             target="_blank"
           >
             Terms of Service <OpenInNew fontSize={"inherit"} />
-          </Link>{" "}
+          </Link>
           apply.
         </Typography>
       </Box>

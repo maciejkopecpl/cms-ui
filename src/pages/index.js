@@ -16,7 +16,7 @@ const commonTheme = {
     MuiCssBaseline: {
       "@global": {
         "main > div:not(:first-child)": {
-          marginTop: "5em",
+          paddingTop: "5em",
         },
       },
     },
