@@ -82,7 +82,7 @@ export default function Map(props) {
         <Box
           display="flex"
           height={460}
-          bgcolor={style === THEME_STYLES.dark ? grey[900] : grey[700]}
+          bgcolor={style === THEME_STYLES.dark ? grey[900] : grey[300]}
           alignItems="center"
           justifyContent="center"
         >
