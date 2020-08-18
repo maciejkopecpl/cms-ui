@@ -22,11 +22,7 @@ export default function Map(props) {
   const [loading, setLoading] = useState(true);
 
   const drawMap = useCallback(() => {
-    if (
-      inView &&
-      typeof window !== `undefined` &&
-      typeof window.google !== "undefined"
-    ) {
+    if (typeof window !== `undefined` && typeof window.google !== "undefined") {
       googleMapRef.current = new window.google.maps.Map(
         document.getElementById("map"),
         {
@@ -41,35 +37,33 @@ export default function Map(props) {
         map: googleMapRef.current,
       });
     }
-  }, [latitude, longitude, style, inView]);
+  }, [latitude, longitude, style]);
 
   const initializeGoogleMapsApi = useCallback(() => {
-    if (inView) {
-      const script = document.createElement("script");
-      script.id = "googleMapsApi";
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_GOOGLE_API_KEY}`;
-      script.defer = true;
-      script.async = true;
-      script.onload = () => {
-        setLoading(false);
-        drawMap();
-      };
+    const script = document.createElement("script");
+    script.id = "googleMapsApi";
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_GOOGLE_API_KEY}`;
+    script.defer = true;
+    script.async = true;
+    script.onload = () => {
+      setLoading(false);
+      drawMap();
+    };
 
-      document.body.appendChild(script);
-    }
-  }, [drawMap, inView]);
+    document.body.appendChild(script);
+  }, [drawMap]);
 
   useEffect(
     () =>
-      inView && document.getElementById("googleMapsApi")
+      document.getElementById("googleMapsApi")
         ? drawMap()
         : initializeGoogleMapsApi(),
-    [inView, drawMap, initializeGoogleMapsApi]
+    [drawMap, initializeGoogleMapsApi]
   );
 
   return (
-    <Container ref={inViewRef} disableGutters={true}>
-      {!loading && inView && (
+    <Container disableGutters={true}>
+      {!loading && (
         <div
           id="map"
           ref={googleMapRef}

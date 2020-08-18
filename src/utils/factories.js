@@ -6,13 +6,14 @@ import {
   Trophy,
   UnfoldMoreVertical,
 } from "mdi-material-ui/light/index.es";
-import React from "react";
-import ContactForm from "../components/ContactForm";
+import React, { Suspense } from "react";
 import Header from "../components/Header";
 import IconsGallery from "../components/IconsGallery";
 import ImagesGallery from "../components/ImagesGallery";
 import Skills from "../components/Skills";
 import WideImage from "../components/WideImage";
+
+const ContactForm = React.lazy(() => import("../components/ContactForm"));
 
 export const buildComponent = component => {
   const data = JSON.parse(component.data);
@@ -41,12 +42,14 @@ export const buildComponent = component => {
       );
     case "CONTACT_FORM":
       return (
-        <ContactForm
-          key={component.id}
-          title={component.title}
-          latitude={data.latitude}
-          longitude={data.longitude}
-        />
+        <Suspense>
+          <ContactForm
+            key={component.id}
+            title={component.title}
+            latitude={data.latitude}
+            longitude={data.longitude}
+          />
+        </Suspense>
       );
     case "HEADER":
       return (
