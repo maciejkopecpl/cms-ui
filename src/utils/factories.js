@@ -7,12 +7,14 @@ import {
   UnfoldMoreVertical,
 } from "mdi-material-ui/light/index.es";
 import React from "react";
-import ContactForm from "../components/ContactForm";
-import Header from "../components/Header";
-import IconsGallery from "../components/IconsGallery";
-import ImagesGallery from "../components/ImagesGallery";
-import Skills from "../components/Skills";
-import WideImage from "../components/WideImage";
+import loadable from "@loadable/component";
+
+const Header = loadable(() => import("../components/Header"));
+const IconsGallery = loadable(() => import("../components/IconsGallery"));
+const ImagesGallery = loadable(() => import("../components/ImagesGallery"));
+const Skills = loadable(() => import("../components/Skills"));
+const WideImage = loadable(() => import("../components/WideImage"));
+const ContactForm = loadable(() => import("../components/ContactForm"));
 
 export const buildComponent = component => {
   const data = JSON.parse(component.data);
