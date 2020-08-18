@@ -89,6 +89,16 @@ export default function Home({ data }) {
             name="description"
             content={`${siteMetadata.title} - ${siteMetadata.subTitle}`}
           />
+          <script type="application/ld+json">
+            {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "url": "${siteMetadata.siteUrl}",
+              "name": "${siteMetadata.title} - ${siteMetadata.subTitle}"
+            }
+          `}
+          </script>
         </Helmet>
         <CssBaseline />
         <Container maxWidth={false} disableGutters={true}>
