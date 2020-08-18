@@ -14,11 +14,13 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@loadable/component": "^5.13.1",
     "@material-ui/styles": "^4.10.0",
     "@openfonts/raleway_latin-ext": "^1.44.1",
     "babel-preset-gatsby": "^0.4.12",
     "clsx": "^1.1.1",
     "gatsby": "^2.23.11",
+    "gatsby-plugin-loadable-components-ssr": "^2.1.0",
     "gatsby-plugin-manifest": "^2.4.14",
     "gatsby-plugin-material-ui": "^2.1.8",
     "gatsby-plugin-react-helmet": "^3.3.6",
