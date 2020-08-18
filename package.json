@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "plmaciejkopec-ui",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.1.0",
+  "description": "MaciejKopec.pl portfolio",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -23,6 +23,7 @@
     "gatsby-plugin-loadable-components-ssr": "^2.1.0",
     "gatsby-plugin-manifest": "^2.4.14",
     "gatsby-plugin-material-ui": "^2.1.8",
+    "gatsby-plugin-offline": "^3.2.23",
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.6.25",

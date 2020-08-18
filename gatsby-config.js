@@ -39,6 +39,7 @@ module.exports = {
         theme_color: "#f50057",
         display: "standalone",
         icon: "src/assets/favicon.png",
+        cache_busting_mode: "none",
       },
     },
     {
@@ -62,6 +63,15 @@ module.exports = {
         useMozJpeg: false,
         stripMetadata: true,
         defaultQuality: 100,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/404`],
+        workboxConfig: {
+          globPatterns: ["**/favicon*"],
+        },
       },
     },
   ],
