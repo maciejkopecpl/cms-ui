@@ -27,6 +27,7 @@ exports.sourceNodes = async ({
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: process.env.API_KEY,
     },
     body: JSON.stringify({
       query: "{ images { image, filename, contentType } }",
