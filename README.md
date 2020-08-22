@@ -2,15 +2,15 @@
 maciejkopec.pl 
 </h1>
 <p align="center">
-Hobby project to explore Gatsby's capabilities. My personal simple portfolio static site built with [Gatsby](https://www.gatsbyjs.org/)
+Hobby project to explore Gatsby's capabilities. My personal simple portfolio static site built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/plmaciejkopec-ui/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/33d5bb48-d1c2-43da-a17d-f6b8baf06f73/deploy-status" alt="Netlify Status" />
   </a>
 </p>
-<p align="center">
-_Feel free to use it any part from this repository._
+  <p align="center" style="font-style: italic;">
+Feel free to use it any part from this repository.
 </p>
 
 ## 🚀 Quick start
