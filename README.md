@@ -1,12 +1,17 @@
 <h1 align="center">
 maciejkopec.pl 
 </h1>
-
+<p align="center">
 Hobby project to explore Gatsby's capabilities. My personal simple portfolio static site built with [Gatsby](https://www.gatsbyjs.org/)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/33d5bb48-d1c2-43da-a17d-f6b8baf06f73/deploy-status)](https://app.netlify.com/sites/plmaciejkopec-ui/deploys)
-
+</p>
+<p align="center">
+  <a href="https://app.netlify.com/sites/plmaciejkopec-ui/deploys" target="_blank">
+    <img src="https://api.netlify.com/api/v1/badges/33d5bb48-d1c2-43da-a17d-f6b8baf06f73/deploy-status" alt="Netlify Status" />
+  </a>
+</p>
+<p align="center">
 _Feel free to use it any part from this repository._
+</p>
 
 ## 🚀 Quick start
 
@@ -82,7 +87,7 @@ A quick look at the top-level files and directories.
 
 ## 🏗️ Backend
 
-The backend services required by this application are available in this [CMS-BACKEND](https://github.com/maciejkopecpl/cms).
+The backend services required by this application are available in this [CMS Backend](https://github.com/maciejkopecpl/cms).
 
 ## 👨‍⚖️ License
 
