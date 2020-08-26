@@ -53,6 +53,7 @@ exports.sourceNodes = async ({
 
     await createRemoteFileNode({
       url: `${process.env.GATSBY_API_URL}/images/${image.image}`,
+      httpHeaders: { Authorization: process.env.API_KEY }, 
       store,
       cache,
       createNode,

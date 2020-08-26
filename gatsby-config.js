@@ -12,7 +12,7 @@ module.exports = {
       url: "https://linkedin.com/in/maciejkopec/",
     },
     github: {
-      url: "https://github.com",
+      url: "https://github.com/maciejkopecpl/cms-ui",
     },
     headerImageId: "5f320a230bdf871d18542799",
   },
