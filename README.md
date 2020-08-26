@@ -1,3 +1,6 @@
+<p align="center">
+  <img width="70" src="https://github.com/maciejkopecpl/cms-ui/blob/master/src/assets/favicon.png?raw=true" />
+</p>
 <h1 align="center">
 maciejkopec.pl 
 </h1>
