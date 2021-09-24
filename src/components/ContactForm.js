@@ -78,7 +78,7 @@ export default function ContactForm(props) {
     <Container maxWidth={"lg"} disableGutters={isMobile}>
       <Grid
         container
-        justify="center"
+        justifyContent="center"
         alignItems="stretch"
         spacing={isMobile ? 0 : 5}
       >
