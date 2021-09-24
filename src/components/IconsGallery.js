@@ -19,10 +19,10 @@ export default function IconsGallery(props) {
       >
         {title}
       </Typography>
-      <Grid container justify="center" alignItems="center" spacing={0}>
+      <Grid container justifyContent="center" alignItems="center" spacing={0}>
         {items.map(item => (
           <Grid item xs={12} md={4} key={item.icon} style={{ padding: "3em" }}>
-            <Grid container justify="center" alignItems="center">
+            <Grid container justifyContent="center" alignItems="center">
               <Grid item xs={12} md={12} style={{ textAlign: "center" }}>
                 {buildIcon(item.icon)}
               </Grid>

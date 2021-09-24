@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
@@ -33,7 +33,7 @@ export default function NotFound({ data }) {
 
   const image = useImageSharp(siteMetadata.headerImageId);
 
-  const palletTheme = createMuiTheme({
+  const palletTheme = createTheme({
     typography: {
       fontFamily: "Raleway, Arial",
     },
@@ -65,7 +65,7 @@ export default function NotFound({ data }) {
           >
             <Grid
               container
-              justify="center"
+              justifyContent="center"
               alignItems="center"
               style={{ height: "100vh" }}
               className={classes.header}

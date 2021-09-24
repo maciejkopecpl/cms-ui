@@ -29,10 +29,10 @@ export default function Skills(props) {
       >
         {title}
       </Typography>
-      <Grid container justify="center" alignItems="center" spacing={5}>
+      <Grid container justifyContent="center" alignItems="center" spacing={5}>
         {items.map(item => (
           <Grid item xs={12} key={item.name}>
-            <Grid container justify="center" alignItems="center">
+            <Grid container justifyContent="center" alignItems="center">
               <Grid item xs={12} md={6}>
                 <Typography gutterBottom>{item.name}</Typography>
               </Grid>

@@ -7,9 +7,9 @@ import { useContext } from "react";
 import * as React from "react";
 import { useInView } from "react-intersection-observer";
 import { Parallax } from "react-parallax";
-import { ThemeContext } from "../pages";
 import { THEME_STYLES } from "../utils/constants";
 import { useImageSharp } from "../utils/useImageSharp";
+import {ThemeContext} from "../utils/Theme";
 
 export default function WideImage(props) {
   const { title, imageId } = props;
@@ -38,7 +38,7 @@ export default function WideImage(props) {
         >
           <Grid
             container
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             style={{ height: 600, color: "white" }}
           >

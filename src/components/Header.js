@@ -34,7 +34,7 @@ export default function Header(props) {
     >
       <Grid
         container
-        justify="center"
+        justifyContent="center"
         alignItems="center"
         style={{ height: "53em" }}
         className={classes.header}
