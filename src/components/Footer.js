@@ -11,9 +11,9 @@ import LinkedIn from "@material-ui/icons/LinkedIn";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { useContext } from "react";
-import { ThemeContext } from "../pages";
 import { THEME_STYLES } from "../utils/constants";
 import { useIsMobile } from "../utils/useIsMobile";
+import {ThemeContext} from "../utils/Theme";
 
 const useStyles = makeStyles(theme => ({
   footer: {
