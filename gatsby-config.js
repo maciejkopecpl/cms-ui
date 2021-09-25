@@ -17,12 +17,12 @@ module.exports = {
     headerImageId: "5f320a230bdf871d18542799",
   },
   plugins: [
+    "gatsby-plugin-loadable-components-ssr",
     "gatsby-plugin-material-ui",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-loadable-components-ssr",
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
