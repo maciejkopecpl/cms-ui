@@ -1,16 +1,47 @@
-import { createTheme } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import "@openfonts/raleway_latin-ext";
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
 import { THEME_STYLES } from "../utils/constants";
 import { buildComponent } from "../utils/factories";
 import { graphql } from "gatsby";
 import "../assets/global.css";
-import {commonTheme, ThemeContext} from "../utils/Theme";
+
+const commonTheme = {
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "main > div:not(:first-child)": {
+          paddingTop: "5em",
+        },
+      },
+    },
+  },
+  underscore: {
+    textAlign: "center",
+    position: "relative",
+    "&::after": {
+      content: "''",
+      position: "absolute",
+      left: "50%",
+      bottom: 0,
+      width: 50,
+      height: 1,
+      marginLeft: -25,
+      backgroundColor: "#d65050",
+    },
+  },
+};
+
+const initialContext = {
+  style: THEME_STYLES.light,
+  toggleStyle: () => {},
+};
+export const ThemeContext = createContext(initialContext);
 
 export default function Home({ data }) {
   const {
@@ -19,7 +50,7 @@ export default function Home({ data }) {
   } = data;
   const [style, setStyle] = useState(THEME_STYLES.light);
 
-  const palletTheme = createTheme(
+  const palletTheme = createMuiTheme(
     {
       palette: {
         type: style,
@@ -109,4 +140,3 @@ export const query = graphql`
     }
   }
 `;
-
