@@ -34,7 +34,7 @@
     "gatsby-source-graphql": "^3.14.0",
     "gatsby-transformer-sharp": "^3.14.0",
     "material-ui-image": "^3.2.3",
-    "mdi-material-ui": "^6.16.0",
+    "mdi-material-ui": "^6.27.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
