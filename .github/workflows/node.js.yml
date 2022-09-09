@@ -20,6 +20,7 @@ jobs:
       uses: cypress-io/github-action@v4
       with:
           browser: chrome
+          start: yarn start
       env: 
         API_KEY: ${{ secrets.API_KEY }}
         GATSBY_API_URL: ${{ secrets.GATSBY_API_URL }}
