@@ -13,7 +13,7 @@ Hobby project to explore Gatsby's capabilities. My personal simple portfolio sta
   </a>
 </p>
   <p align="center" style="font-style: italic;">
-Feel free to use it any part from this repository.
+Feel free to use any part from this repository.
 </p>
 
 ## 🚀 Quick start
