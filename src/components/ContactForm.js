@@ -125,7 +125,7 @@ export default function ContactForm(props) {
               name="message"
               label="Message"
               multiline
-              rows={4}
+              minRows={4}
               fullWidth
               required
               placeholder="Message"
