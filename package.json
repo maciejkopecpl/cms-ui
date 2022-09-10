@@ -11,7 +11,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "yarn run test:e2e",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -51,7 +53,9 @@
     "@types/node": "^16.9.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
-    "prettier": "2.4.1"
+    "cypress": "^10.7.0",
+    "prettier": "2.7.1",
+    "start-server-and-test": "^1.14.0"
   },
   "repository": {
     "type": "git",
