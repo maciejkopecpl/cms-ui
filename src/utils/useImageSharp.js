@@ -1,4 +1,4 @@
-import {useStaticQuery, graphql} from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 export const useImageSharp = id => {
   const data = useStaticQuery(graphql`
@@ -19,7 +19,7 @@ export const useImageSharp = id => {
     }
   `);
 
-    return data.allImageSharp.edges.find(
-        item => item.node.parent.id === `image-${id}`
-    )?.node.gatsbyImageData.images.fallback;
+  return data.allImageSharp.edges.find(
+    item => item.node.parent.id === `image-${id}`
+  )?.node.gatsbyImageData.images.fallback;
 };
