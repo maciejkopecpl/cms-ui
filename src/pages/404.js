@@ -12,7 +12,6 @@ import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import "@openfonts/raleway_latin-ext";
 import { graphql } from "gatsby";
 import React from "react";
-import { Helmet } from "react-helmet";
 import { Parallax } from "react-parallax";
 import "../assets/global.css";
 import { useImageSharp } from "../utils/useImageSharp";
@@ -43,16 +42,6 @@ export default function NotFound({ data }) {
 
   return (
     <ThemeProvider theme={palletTheme}>
-      <Helmet>
-        <html lang="en" />
-        <meta charSet="utf-8" />
-        <title>{`404 - ${siteMetadata.title} - ${siteMetadata.subTitle}`}</title>
-        <link rel="canonical" href={siteMetadata.siteUrl} />
-        <meta
-          name="description"
-          content={`${siteMetadata.title} - ${siteMetadata.subTitle}`}
-        />
-      </Helmet>
       <CssBaseline />
       <>
         <Container maxWidth={false} disableGutters={true}>
@@ -167,3 +156,22 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => {
+  const {
+    site: { siteMetadata },
+  } = data;
+
+  return (
+    <>
+      <html lang="en" />
+      <meta charSet="utf-8" />
+      <title>{`404 - ${siteMetadata.title} - ${siteMetadata.subTitle}`}</title>
+      <link rel="canonical" href={siteMetadata.siteUrl} />
+      <meta
+        name="description"
+        content={`${siteMetadata.title} - ${siteMetadata.subTitle}`}
+      />
+    </>
+  );
+};

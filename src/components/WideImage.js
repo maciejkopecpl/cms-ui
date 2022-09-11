@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { Parallax } from "react-parallax";
 import { THEME_STYLES } from "../utils/constants";
 import { useImageSharp } from "../utils/useImageSharp";
-import {ThemeContext} from "../utils/Theme";
+import { ThemeContext } from "../utils/Theme";
 
 export default function WideImage(props) {
   const { title, imageId } = props;

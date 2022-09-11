@@ -13,7 +13,7 @@ import * as React from "react";
 import { useContext } from "react";
 import { THEME_STYLES } from "../utils/constants";
 import { useIsMobile } from "../utils/useIsMobile";
-import {ThemeContext} from "../utils/Theme";
+import { ThemeContext } from "../utils/Theme";
 
 const useStyles = makeStyles(theme => ({
   footer: {

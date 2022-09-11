@@ -12,7 +12,7 @@ import React, {
 } from "react";
 import { useInView } from "react-intersection-observer";
 import { THEME_STYLES } from "../utils/constants";
-import {ThemeContext} from "../utils/Theme";
+import { ThemeContext } from "../utils/Theme";
 
 export default function Map(props) {
   const googleMapRef = useRef();

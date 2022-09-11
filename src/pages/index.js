@@ -4,13 +4,12 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import "@openfonts/raleway_latin-ext";
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
 import { THEME_STYLES } from "../utils/constants";
 import { buildComponent } from "../utils/factories";
 import { graphql } from "gatsby";
 import "../assets/global.css";
-import {commonTheme, ThemeContext} from "../utils/Theme";
+import { commonTheme, ThemeContext } from "../utils/Theme";
 
 export default function Home({ data }) {
   const {
@@ -49,26 +48,6 @@ export default function Home({ data }) {
   return (
     <ThemeContext.Provider value={{ style, toggleStyle }}>
       <ThemeProvider theme={palletTheme}>
-        <Helmet>
-          <html lang="en" />
-          <meta charSet="utf-8" />
-          <title>{`${siteMetadata.title} - ${siteMetadata.subTitle}`}</title>
-          <link rel="canonical" href={siteMetadata.siteUrl} />
-          <meta
-            name="description"
-            content={`${siteMetadata.title} - ${siteMetadata.subTitle}`}
-          />
-          <script type="application/ld+json">
-            {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "url": "${siteMetadata.siteUrl}",
-              "name": "${siteMetadata.title} - ${siteMetadata.subTitle}"
-            }
-          `}
-          </script>
-        </Helmet>
         <CssBaseline />
         <Container maxWidth={false} disableGutters={true}>
           <main>{modules.map(component => buildComponent(component))}</main>
@@ -110,3 +89,31 @@ export const query = graphql`
   }
 `;
 
+export const Head = ({ data }) => {
+  const {
+    site: { siteMetadata },
+  } = data;
+
+  return (
+    <>
+      <html lang="en" />
+      <meta charSet="utf-8" />
+      <title>{`${siteMetadata.title} - ${siteMetadata.subTitle}`}</title>
+      <link rel="canonical" href={siteMetadata.siteUrl} />
+      <meta
+        name="description"
+        content={`${siteMetadata.title} - ${siteMetadata.subTitle}`}
+      />
+      <script type="application/ld+json">
+        {`
+                {
+                  "@context": "https://schema.org",
+                  "@type": "Organization",
+                  "url": "${siteMetadata.siteUrl}",
+                  "name": "${siteMetadata.title} - ${siteMetadata.subTitle}"
+                }
+              `}
+      </script>
+    </>
+  );
+};
