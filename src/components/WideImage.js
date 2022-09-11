@@ -32,8 +32,8 @@ export default function WideImage(props) {
       {inView && (
         <Parallax
           strength={450}
-          bgImage={image?.srcWebp}
-          bgImageSrcSet={image?.srcSetWebp}
+          bgImage={image?.src}
+          bgImageSrcSet={image?.srcSet}
           bgImageSizes={image?.sizes}
         >
           <Grid

@@ -47,8 +47,8 @@ export default function NotFound({ data }) {
         <Container maxWidth={false} disableGutters={true}>
           <Parallax
             strength={200}
-            bgImage={image?.srcWebp}
-            bgImageSrcSet={image?.srcSetWebp}
+            bgImage={image?.src}
+            bgImageSrcSet={image?.srcSet}
             bgImageSizes={image?.sizes}
             contentClassName={classes.overlay}
           >
@@ -135,23 +135,6 @@ export const query = graphql`
           url
         }
         headerImageId
-      }
-    }
-    allImageSharp(filter: { parent: { id: { glob: "image-*" } } }) {
-      edges {
-        node {
-          id
-          parent {
-            ... on File {
-              id
-            }
-          }
-          fluid(webpQuality: 100, maxWidth: 2000) {
-            sizes
-            srcSetWebp
-            srcWebp
-          }
-        }
       }
     }
   }

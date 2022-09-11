@@ -26,8 +26,8 @@ export default function Header(props) {
   return (
     <Parallax
       strength={200}
-      bgImage={image?.srcWebp}
-      bgImageSrcSet={image?.srcSetWebp}
+      bgImage={image?.src}
+      bgImageSrcSet={image?.srcSet}
       bgImageSizes={image?.sizes}
       contentClassName={classes.overlay}
       bgImageStyle={{ marginTop: isMobile ? -100 : -200 }}

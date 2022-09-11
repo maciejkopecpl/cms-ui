@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby";
+import {useStaticQuery, graphql} from "gatsby";
 
 export const useImageSharp = id => {
   const data = useStaticQuery(graphql`
@@ -12,18 +12,14 @@ export const useImageSharp = id => {
                 id
               }
             }
-            fluid(webpQuality: 100, maxWidth: 2000) {
-              sizes
-              srcSetWebp
-              srcWebp
-            }
+            gatsbyImageData(layout: CONSTRAINED, quality: 100, formats: [WEBP])
           }
         }
       }
     }
   `);
 
-  return data.allImageSharp.edges.find(
-    item => item.node.parent.id === `image-${id}`
-  )?.node.fluid;
+    return data.allImageSharp.edges.find(
+        item => item.node.parent.id === `image-${id}`
+    )?.node.gatsbyImageData.images.fallback;
 };
