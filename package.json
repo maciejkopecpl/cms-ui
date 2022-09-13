@@ -20,7 +20,7 @@
     "@loadable/component": "^5.13.1",
     "@material-ui/styles": "^4.10.0",
     "@openfonts/raleway_latin-ext": "^1.44.1",
-    "babel-preset-gatsby": "^1.14.0",
+    "babel-preset-gatsby": "^2.23.0",
     "clsx": "^1.1.1",
     "gatsby": "^3.14.0",
     "gatsby-plugin-loadable-components-ssr": "^3.4.0",
