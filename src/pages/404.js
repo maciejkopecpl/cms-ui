@@ -1,4 +1,4 @@
-import { createTheme, StyledEngineProvider } from "@mui/material";
+import { adaptV4Theme, createTheme, StyledEngineProvider } from "@mui/material";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
@@ -8,7 +8,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { GitHub } from "@mui/icons-material";
 import LinkedIn from "@mui/icons-material/LinkedIn";
-import ThemeProvider from "@mui/styles/ThemeProvider";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import "@openfonts/raleway_latin-ext";
 import { graphql } from "gatsby";
 import React from "react";
@@ -17,9 +17,9 @@ import "../assets/global.css";
 import { useImageSharp } from "../utils/useImageSharp";
 import { commonTheme } from "../utils/Theme";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   header: {
-    color: theme.palette.common.white,
+    color: "#fff",
   },
   overlay: {
     backgroundColor: "rgba(0,0,0,.3)",
@@ -33,7 +33,9 @@ export default function NotFound({ data }) {
 
   const image = useImageSharp(siteMetadata.headerImageId);
 
-  const palletTheme = createTheme(...commonTheme);
+  const palletTheme = createTheme({
+    ...commonTheme,
+  });
 
   const classes = useStyles();
 
