@@ -5,18 +5,6 @@ require("dotenv").config({
 const fetch = require(`node-fetch`);
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  if (stage.startsWith("develop")) {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          "react-dom": "@hot-loader/react-dom",
-        },
-      },
-    });
-  }
-};
-
 exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
