@@ -1,7 +1,7 @@
-import { createTheme } from "@material-ui/core";
-import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import ThemeProvider from "@material-ui/styles/ThemeProvider";
+import { createTheme, StyledEngineProvider } from "@mui/material";
+import Container from "@mui/material/Container";
+import CssBaseline from "@mui/material/CssBaseline";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import "@openfonts/raleway_latin-ext";
 import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
@@ -10,24 +10,42 @@ import { buildComponent } from "../utils/factories";
 import { graphql } from "gatsby";
 import "../assets/global.css";
 import { commonTheme, ThemeContext } from "../utils/Theme";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function Home({ data }) {
   const {
     site: { siteMetadata },
     backend: { modules } = {},
   } = data;
+
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [style, setStyle] = useState(THEME_STYLES.light);
 
-  const palletTheme = createTheme(
-    {
-      palette: {
-        type: style,
-      },
-      typography: {
-        fontFamily: "Raleway, Arial",
-      },
+  const getDesignTokens = style => ({
+    palette: {
+      mode: style,
+      ...(style === THEME_STYLES.dark
+        ? {
+            secondary: {
+              main: "#f44336",
+            },
+            background: {
+              default: "#303030",
+              paper: "#303030",
+            },
+          }
+        : {
+            secondary: {
+              main: "#f44336",
+            },
+          }),
     },
-    commonTheme
+    ...commonTheme,
+  });
+
+  const theme = React.useMemo(
+    () => createTheme(getDesignTokens(style)),
+    [style]
   );
 
   const toggleStyle = () => {
@@ -40,24 +58,37 @@ export default function Home({ data }) {
   };
 
   useEffect(() => {
-    if (typeof window !== `undefined`) {
-      setStyle(window.localStorage.getItem("style") || THEME_STYLES.light);
+    if (typeof window === `undefined`) {
+      prefersDarkMode
+        ? setStyle(THEME_STYLES.dark)
+        : setStyle(THEME_STYLES.light);
+    } else {
+      const configuredStyle = window.localStorage.getItem("style");
+      if (configuredStyle) {
+        setStyle(configuredStyle);
+      } else if (prefersDarkMode) {
+        setStyle(THEME_STYLES.dark);
+      } else {
+        setStyle(THEME_STYLES.light);
+      }
     }
-  }, []);
+  }, [prefersDarkMode]);
 
   return (
     <ThemeContext.Provider value={{ style, toggleStyle }}>
-      <ThemeProvider theme={palletTheme}>
-        <CssBaseline />
-        <Container maxWidth={false} disableGutters={true}>
-          <main>{modules.map(component => buildComponent(component))}</main>
-          <Footer
-            title={siteMetadata.linkedIn.title}
-            linkedIn={siteMetadata.linkedIn.url}
-            github={siteMetadata.github.url}
-          />
-        </Container>
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Container maxWidth={false} disableGutters={true}>
+            <main>{modules.map(component => buildComponent(component))}</main>
+            <Footer
+              title={siteMetadata.linkedIn.title}
+              linkedIn={siteMetadata.linkedIn.url}
+              github={siteMetadata.github.url}
+            />
+          </Container>
+        </ThemeProvider>
+      </StyledEngineProvider>
     </ThemeContext.Provider>
   );
 }

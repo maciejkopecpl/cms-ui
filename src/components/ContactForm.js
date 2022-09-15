@@ -1,11 +1,11 @@
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Snackbar from "@material-ui/core/Snackbar";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import Alert from "@material-ui/lab/Alert";
-import AlertTitle from "@material-ui/lab/AlertTitle";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Snackbar from "@mui/material/Snackbar";
+import makeStyles from "@mui/styles/makeStyles";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { useEffect, useState } from "react";
@@ -95,6 +95,7 @@ export default function ContactForm(props) {
               {title}
             </Typography>
             <TextField
+              variant="standard"
               id="name"
               name="name"
               label="Name"
@@ -108,6 +109,7 @@ export default function ContactForm(props) {
               onChange={onFieldChange}
             />
             <TextField
+              variant="standard"
               id="email"
               name="from"
               label="E-mail"
@@ -121,6 +123,7 @@ export default function ContactForm(props) {
               onChange={onFieldChange}
             />
             <TextField
+              variant="standard"
               id="message"
               name="message"
               label="Message"

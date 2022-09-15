@@ -1,7 +1,6 @@
-import { Container } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import grey from "@material-ui/core/colors/grey";
+import { Container } from "@mui/material";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 import PropTypes from "prop-types";
 import React, {
   useCallback,
@@ -13,6 +12,7 @@ import React, {
 import { useInView } from "react-intersection-observer";
 import { THEME_STYLES } from "../utils/constants";
 import { ThemeContext } from "../utils/Theme";
+import { grey } from "@mui/material/colors";
 
 export default function Map(props) {
   const googleMapRef = useRef();

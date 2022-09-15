@@ -1,19 +1,20 @@
-import { Container } from "@material-ui/core";
-import grey from "@material-ui/core/colors/grey";
-import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import Link from "@material-ui/core/Link";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Tooltip from "@material-ui/core/Tooltip";
-import Typography from "@material-ui/core/Typography";
-import { Brightness4, Brightness7, GitHub } from "@material-ui/icons";
-import LinkedIn from "@material-ui/icons/LinkedIn";
+import { Container } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import { Brightness4, Brightness7, GitHub } from "@mui/icons-material";
+import LinkedIn from "@mui/icons-material/LinkedIn";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { useContext } from "react";
 import { THEME_STYLES } from "../utils/constants";
 import { useIsMobile } from "../utils/useIsMobile";
 import { ThemeContext } from "../utils/Theme";
+import { grey } from "@mui/material/colors";
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -51,6 +52,7 @@ export default function Footer(props) {
             rel="noopener"
             color="inherit"
             aria-label="LinkedIn - Maciej Kopeć - Software Engineer"
+            underline="hover"
           >
             <LinkedIn style={{ fontSize: 100 }} />
           </Link>
@@ -70,6 +72,7 @@ export default function Footer(props) {
                     aria-label="Toggle light/dark mode"
                     color="secondary"
                     onClick={toggleStyle}
+                    size="large"
                   >
                     {style === THEME_STYLES.dark ? (
                       <Brightness7 />
@@ -88,6 +91,7 @@ export default function Footer(props) {
                     target={"_blank"}
                     rel="noreferrer"
                     href={github}
+                    size="large"
                   >
                     <GitHub color="secondary" />
                   </IconButton>

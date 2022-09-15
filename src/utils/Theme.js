@@ -2,9 +2,12 @@ import { THEME_STYLES } from "./constants";
 import { createContext } from "react";
 
 export const commonTheme = {
-  overrides: {
+  typography: {
+    fontFamily: "Raleway, Arial",
+  },
+  components: {
     MuiCssBaseline: {
-      "@global": {
+      styleOverrides: {
         "main > div:not(:first-child)": {
           paddingTop: "5em",
         },

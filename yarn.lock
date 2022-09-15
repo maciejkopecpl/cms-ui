@@ -1872,10 +1872,10 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-2.1.2.tgz#f2d8b9ddd8d191205ed26ce54aba3dfc5ae3e7c9"
   integrity sha512-rIZVR48zA8hGkHIK7ED6+ZiXsjRCcAVBJbm8o89OKAMTmEAQ2QvoOxoiu3w2isAaWwzgtQIOFIqHwvZDyLKCvw==
 
-"@mui/base@5.0.0-alpha.96":
-  version "5.0.0-alpha.96"
-  resolved "https://registry.yarnpkg.com/@mui/base/-/base-5.0.0-alpha.96.tgz#2189dd1012d0969ace69c3479b0aec2dbe9bbdc1"
-  integrity sha512-GZf2YguepLFMWGG8vQNLRl7FlXPDeyxQBYgrkHxwNJYeRw55rrGrJxHzL1iCbk71VZ2IIAIs5IAxNpyHK9iqPQ==
+"@mui/base@5.0.0-alpha.97":
+  version "5.0.0-alpha.97"
+  resolved "https://registry.yarnpkg.com/@mui/base/-/base-5.0.0-alpha.97.tgz#bd12db4ed3bb1dbc2879944bbdb68b559641b02a"
+  integrity sha512-gvo0hOg/tBzfJ3eDQOGAPBJJU+qTWd0e5zBEMFIkT1ekJqXx14JtIHvheOFU17y9iDciYE256Q8g+tj6a1dcBA==
   dependencies:
     "@babel/runtime" "^7.18.9"
     "@emotion/is-prop-valid" "^1.2.0"
@@ -1886,20 +1886,40 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@mui/core-downloads-tracker@^5.10.4":
-  version "5.10.4"
-  resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.10.4.tgz#6b208687f016e8f583ee14582b8a949d89b2f121"
-  integrity sha512-VGekVa9dleJ+ii47+gXvKUV5a11T0nsjXN8bk5NqiJRQWRCAhbTHgsfZuctNcMeLW9FSf2gu6U0k2U6rhABKcA==
+"@mui/core-downloads-tracker@^5.10.5":
+  version "5.10.5"
+  resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.10.5.tgz#be060b633268b124d27474e772e506bb3f39ca51"
+  integrity sha512-sZYg85rQdlgDYU3V4WcT2Dl+k+y2wYqN04aUvVkFksRR0j81sj6KmfXx4842HJQcq5rjzcTvh4N+yv66XR/9fA==
 
-"@mui/material@^5.10.4":
-  version "5.10.4"
-  resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.10.4.tgz#a3a72f438614fe4319a6ee805542bb599fd6ec02"
-  integrity sha512-uwupjunU3p8XxZU4f2zF1GYlwB9GDxW1H05BMDPSh0u+37yLxuQDMMxwQQPUo9jSA5Y22/eR4Y71ScxKU89QHg==
+"@mui/icons-material@^5.10.3":
+  version "5.10.3"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.10.3.tgz#33bd1d973c4727ab55d02928fc8973b7f16fff55"
+  integrity sha512-o0kbUlsWCBtCE0wP33cGKbyryCh7kpm2EECYMPDmWrLhbA+HUODXIdhiTFS26szp2xXo9HY1lEx0ufeJ+tddYw==
   dependencies:
     "@babel/runtime" "^7.18.9"
-    "@mui/base" "5.0.0-alpha.96"
-    "@mui/core-downloads-tracker" "^5.10.4"
-    "@mui/system" "^5.10.4"
+
+"@mui/lab@^5.0.0-alpha.99":
+  version "5.0.0-alpha.99"
+  resolved "https://registry.yarnpkg.com/@mui/lab/-/lab-5.0.0-alpha.99.tgz#b643b323df4b98b35c36faeb6f06650ed7d23789"
+  integrity sha512-GBjpeugp59KEHdIGJ4w9uqWcxNSPr2q6IEjzjWkut6GpprSruVYgXGn5PqBdrcSEtLKTd8bQ0xBFPSmoVqkJUw==
+  dependencies:
+    "@babel/runtime" "^7.18.9"
+    "@mui/base" "5.0.0-alpha.97"
+    "@mui/system" "^5.10.5"
+    "@mui/utils" "^5.10.3"
+    clsx "^1.2.1"
+    prop-types "^15.8.1"
+    react-is "^18.2.0"
+
+"@mui/material@^5.10.5":
+  version "5.10.5"
+  resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.10.5.tgz#390f95f346e5459d8df43f5e749b2310cefba96d"
+  integrity sha512-VFMadvfA6jqx5DCk2xoBl4bAGyzgmmubJIuB7fUWUZBwYIYL5Ea9SsoFpt5kawA6O2feuj69alDN2fhxPw1MeQ==
+  dependencies:
+    "@babel/runtime" "^7.18.9"
+    "@mui/base" "5.0.0-alpha.97"
+    "@mui/core-downloads-tracker" "^5.10.5"
+    "@mui/system" "^5.10.5"
     "@mui/types" "^7.2.0"
     "@mui/utils" "^5.10.3"
     "@types/react-transition-group" "^4.4.5"
@@ -1918,10 +1938,10 @@
     "@mui/utils" "^5.10.3"
     prop-types "^15.8.1"
 
-"@mui/styled-engine@^5.10.4":
-  version "5.10.4"
-  resolved "https://registry.yarnpkg.com/@mui/styled-engine/-/styled-engine-5.10.4.tgz#21b3ff3c18a748548b061bccff337a275e1f4861"
-  integrity sha512-y29qlonPj4wndTjbePk9O6uWp/FBRNXjiMwI64oiYQ+v3E0EkLnADfDn49GAqOJAfN/r7nHbVZBlvLNIcMbgDg==
+"@mui/styled-engine@^5.10.5":
+  version "5.10.5"
+  resolved "https://registry.yarnpkg.com/@mui/styled-engine/-/styled-engine-5.10.5.tgz#8ce4197e887a69119aea056320aad5812025ceb4"
+  integrity sha512-6U6tTdf+H1OsjgcFoY12gYPR+qqZ1WHGGIahK5V7JhMkMUgH7ozyiNi8s1LzmwrUlAz1hAAhuO5nBYXku3wWvw==
   dependencies:
     "@babel/runtime" "^7.18.9"
     "@emotion/cache" "^11.10.3"
@@ -1951,14 +1971,14 @@
     jss-plugin-vendor-prefixer "^10.9.2"
     prop-types "^15.8.1"
 
-"@mui/system@^5.10.4":
-  version "5.10.4"
-  resolved "https://registry.yarnpkg.com/@mui/system/-/system-5.10.4.tgz#4621cbae1bfc551c95e368d32850160b64034a67"
-  integrity sha512-fE7LtYStPHPfq7EJXEVLQGvz23pS5YwSI7A4mWEFyyW21hHUh0c1opZXb7caHJsUTiBoC22W7R8GGfbVdSOnZA==
+"@mui/system@^5.10.5":
+  version "5.10.5"
+  resolved "https://registry.yarnpkg.com/@mui/system/-/system-5.10.5.tgz#b0c8494aa9230fb3b8e33c4aee05207925519569"
+  integrity sha512-GUPiDVZTKp9yH3FVeLSIw3Bqsyl7qLxtAK1ZiZmC8e+zdH7bcnZZXvWK3vPIbx35ZyhQpvAOWQFpiF9TjdA77w==
   dependencies:
     "@babel/runtime" "^7.18.9"
     "@mui/private-theming" "^5.10.3"
-    "@mui/styled-engine" "^5.10.4"
+    "@mui/styled-engine" "^5.10.5"
     "@mui/types" "^7.2.0"
     "@mui/utils" "^5.10.3"
     clsx "^1.2.1"
@@ -2622,9 +2642,9 @@
   integrity sha512-CK2fnrQlIgKlCV3N2kM+Gznb5USlwA1KFX3rJVHmgVk6NJxFPuQ86pAcvKnu37IA4BGlSRz7sEE1lHL1aLZ/eQ==
 
 "@types/node@^16.9.6":
-  version "16.11.58"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.58.tgz#0a3698dee3492617a8d5fe7998d18d7520b63026"
-  integrity sha512-uMVxJ111wpHzkx/vshZFb6Qni3BOMnlWLq7q9jrwej7Yw/KvjsEbpxCCxw+hLKxexFMc8YmpG8J9tnEe/rKsIg==
+  version "16.11.59"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.59.tgz#823f238b9063ccc3b3b7f13186f143a57926c4f6"
+  integrity sha512-6u+36Dj3aDzhfBVUf/mfmc92OEdzQ2kx2jcXGdigfl70E/neV21ZHE6UCz4MDzTRcVqGAM27fk+DLXvyDsn3Jw==
 
 "@types/node@^17.0.5":
   version "17.0.45"
@@ -2694,9 +2714,9 @@
     csstype "^3.0.2"
 
 "@types/react@^17", "@types/react@^17.0.24":
-  version "17.0.49"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.49.tgz#df87ba4ca8b7942209c3dc655846724539dc1049"
-  integrity sha512-CCBPMZaPhcKkYUTqFs/hOWqKjPxhTEmnZWjlHHgIMop67DsXywf9B5Os9Hz8KSacjNOgIdnZVJamwl232uxoPg==
+  version "17.0.50"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.50.tgz#39abb4f7098f546cfcd6b51207c90c4295ee81fc"
+  integrity sha512-ZCBHzpDb5skMnc1zFXAXnL3l1FAdi+xZvwxK+PkglMmBrwjpp9nKaWuEvrGnSifCJmBFGxZOOFuwC6KH/s0NuA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -9532,6 +9552,11 @@ rc@1.2.8, rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-color-mode@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-color-mode/-/react-color-mode-2.0.1.tgz#437bfb7fe5ae78213823693d6919eab5fb2d5071"
+  integrity sha512-V4N2CXqwRAz5l3+UW0vFnENXoprKvGSLuNEIr8L80amOE1/lKgffl2dY8pLZYEQJB0rg4idU315MJzNZrZbiNw==
 
 react-dev-utils@^12.0.1:
   version "12.0.1"

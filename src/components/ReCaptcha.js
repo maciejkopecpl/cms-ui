@@ -1,16 +1,17 @@
-import { Button, Typography } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import green from "@material-ui/core/colors/green";
-import pink from "@material-ui/core/colors/pink";
-import Link from "@material-ui/core/Link";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import OpenInNew from "@material-ui/icons/OpenInNew";
+import { Button, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
+import Link from "@mui/material/Link";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import OpenInNew from "@mui/icons-material/OpenInNew";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useIsMobile } from "../utils/useIsMobile";
+
+import { green, pink } from "@mui/material/colors";
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -118,6 +119,7 @@ export default function ReCaptcha(props) {
             href="https://policies.google.com/privacy"
             rel="noreferrer"
             target="_blank"
+            underline="hover"
           >
             Privacy Policy <OpenInNew fontSize={"inherit"} />
           </Link>
@@ -127,6 +129,7 @@ export default function ReCaptcha(props) {
             href="https://policies.google.com/terms"
             rel="noreferrer"
             target="_blank"
+            underline="hover"
           >
             Terms of Service <OpenInNew fontSize={"inherit"} />
           </Link>
