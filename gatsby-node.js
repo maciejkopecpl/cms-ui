@@ -5,18 +5,6 @@ require("dotenv").config({
 const fetch = require(`node-fetch`);
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  if (stage.startsWith("develop")) {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          "react-dom": "@hot-loader/react-dom",
-        },
-      },
-    });
-  }
-};
-
 exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
@@ -53,7 +41,7 @@ exports.sourceNodes = async ({
 
     await createRemoteFileNode({
       url: `${process.env.GATSBY_API_URL}/images/${image.image}`,
-      httpHeaders: { Authorization: process.env.API_KEY }, 
+      httpHeaders: { Authorization: process.env.API_KEY },
       store,
       cache,
       createNode,

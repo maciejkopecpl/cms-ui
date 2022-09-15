@@ -1,6 +1,6 @@
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+import Grid from "@mui/material/Grid";
+import makeStyles from "@mui/styles/makeStyles";
+import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { Parallax } from "react-parallax";
@@ -26,8 +26,8 @@ export default function Header(props) {
   return (
     <Parallax
       strength={200}
-      bgImage={image?.srcWebp}
-      bgImageSrcSet={image?.srcSetWebp}
+      bgImage={image?.src}
+      bgImageSrcSet={image?.srcSet}
       bgImageSizes={image?.sizes}
       contentClassName={classes.overlay}
       bgImageStyle={{ marginTop: isMobile ? -100 : -200 }}

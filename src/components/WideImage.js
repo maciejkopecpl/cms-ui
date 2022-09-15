@@ -1,7 +1,6 @@
-import grey from "@material-ui/core/colors/grey";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import * as React from "react";
@@ -9,7 +8,8 @@ import { useInView } from "react-intersection-observer";
 import { Parallax } from "react-parallax";
 import { THEME_STYLES } from "../utils/constants";
 import { useImageSharp } from "../utils/useImageSharp";
-import {ThemeContext} from "../utils/Theme";
+import { ThemeContext } from "../utils/Theme";
+import { grey } from "@mui/material/colors";
 
 export default function WideImage(props) {
   const { title, imageId } = props;
@@ -32,8 +32,8 @@ export default function WideImage(props) {
       {inView && (
         <Parallax
           strength={450}
-          bgImage={image?.srcWebp}
-          bgImageSrcSet={image?.srcSetWebp}
+          bgImage={image?.src}
+          bgImageSrcSet={image?.srcSet}
           bgImageSizes={image?.sizes}
         >
           <Grid

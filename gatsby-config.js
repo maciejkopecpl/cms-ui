@@ -19,7 +19,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-loadable-components-ssr",
     "gatsby-plugin-material-ui",
-    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sitemap",

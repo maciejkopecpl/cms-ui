@@ -12,11 +12,7 @@ export const useImageSharp = id => {
                 id
               }
             }
-            fluid(webpQuality: 100, maxWidth: 2000) {
-              sizes
-              srcSetWebp
-              srcWebp
-            }
+            gatsbyImageData(layout: CONSTRAINED, quality: 100, formats: [WEBP])
           }
         }
       }
@@ -25,5 +21,5 @@ export const useImageSharp = id => {
 
   return data.allImageSharp.edges.find(
     item => item.node.parent.id === `image-${id}`
-  )?.node.fluid;
+  )?.node.gatsbyImageData.images.fallback;
 };
