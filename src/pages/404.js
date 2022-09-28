@@ -1,4 +1,4 @@
-import { adaptV4Theme, createTheme, StyledEngineProvider } from "@mui/material";
+import { createTheme, StyledEngineProvider } from "@mui/material";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
