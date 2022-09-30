@@ -3,9 +3,8 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "@mui/material/Link";
 import { useTheme } from "@mui/material/styles";
-import makeStyles from "@mui/styles/makeStyles";
+import { makeStyles } from "tss-react/mui";
 import OpenInNew from "@mui/icons-material/OpenInNew";
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -13,7 +12,7 @@ import { useIsMobile } from "../utils/useIsMobile";
 
 import { green, pink } from "@mui/material/colors";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   wrapper: {
     position: "relative",
   },
@@ -41,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ReCaptcha(props) {
   const { onSubmit, label, disabled } = props;
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const gRepCaptchaRef = useRef();
   const [loading, setLoading] = useState(false);
@@ -50,12 +49,12 @@ export default function ReCaptcha(props) {
   const isMobile = useIsMobile();
   const [inViewRef, inView] = useInView({ triggerOnce: true });
 
-  const buttonClassname = clsx({
+  const buttonClassname = cx({
     [classes.buttonSuccess]: success,
     [classes.buttonMobile]: isMobile,
   });
 
-  const buttonProgressMobile = clsx({
+  const buttonProgressMobile = cx({
     [classes.buttonProgress]: true,
     [classes.buttonProgressMobile]: isMobile,
   });

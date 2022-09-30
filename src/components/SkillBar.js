@@ -1,10 +1,10 @@
 import LinearProgress from "@mui/material/LinearProgress";
-import makeStyles from "@mui/styles/makeStyles";
+import { makeStyles } from "tss-react/mui";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()({
   customTransition: {
     transition: "transform 1.5s cubic-bezier(0.57, 0.02, 1, 1)",
   },
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 
 export default function SkillBar(props) {
   const { skillValue } = props;
-  const classes = useStyles();
+  const { classes } = useStyles();
   const [inViewRef, inView] = useInView({ triggerOnce: true });
   const [progress, setProgress] = useState(0);
 

@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
-import makeStyles from "@mui/styles/makeStyles";
+import { makeStyles } from "tss-react/mui";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { GitHub } from "@mui/icons-material";
@@ -17,7 +17,7 @@ import "../assets/global.css";
 import { useImageSharp } from "../utils/useImageSharp";
 import { commonTheme } from "../utils/Theme";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
   header: {
     color: "#fff",
   },
@@ -37,7 +37,7 @@ export default function NotFound({ data }) {
     ...commonTheme,
   });
 
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <StyledEngineProvider injectFirst>
