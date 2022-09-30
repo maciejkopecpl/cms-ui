@@ -6,15 +6,14 @@ import {
   Trophy,
   UnfoldMoreVertical,
 } from "mdi-material-ui/light/index.es";
-import React from "react";
-import loadable from "@loadable/component";
+import React, { lazy } from "react";
 
-const Header = loadable(() => import("../components/Header"));
-const IconsGallery = loadable(() => import("../components/IconsGallery"));
-const ImagesGallery = loadable(() => import("../components/ImagesGallery"));
-const Skills = loadable(() => import("../components/Skills"));
-const WideImage = loadable(() => import("../components/WideImage"));
-const ContactForm = loadable(() => import("../components/ContactForm"));
+const Header = lazy(() => import("../components/Header"));
+const IconsGallery = lazy(() => import("../components/IconsGallery"));
+const ImagesGallery = lazy(() => import("../components/ImagesGallery"));
+const Skills = lazy(() => import("../components/Skills"));
+const WideImage = lazy(() => import("../components/WideImage"));
+const ContactForm = lazy(() => import("../components/ContactForm"));
 
 export const buildComponent = component => {
   const data = JSON.parse(component.data);

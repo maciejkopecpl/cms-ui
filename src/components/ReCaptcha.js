@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "@mui/material/Link";
 import { useTheme } from "@mui/material/styles";
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from "tss-react/mui";
 import OpenInNew from "@mui/icons-material/OpenInNew";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";

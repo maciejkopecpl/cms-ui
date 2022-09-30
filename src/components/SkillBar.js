@@ -1,5 +1,5 @@
 import LinearProgress from "@mui/material/LinearProgress";
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from "tss-react/mui";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
