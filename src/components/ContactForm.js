@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Snackbar from "@mui/material/Snackbar";
-import makeStyles from "@mui/styles/makeStyles";
+import { makeStyles } from 'tss-react/mui';
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
@@ -14,7 +14,7 @@ import { useIsMobile } from "../utils/useIsMobile";
 import Map from "./Map";
 import ReCaptcha from "./ReCaptcha";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   header: {
     textTransform: "uppercase",
     ...theme.underscore,
@@ -55,7 +55,7 @@ export default function ContactForm(props) {
     latitude,
     longitude,
   } = props;
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const [message, setMessage] = useState(emptyMessage);
   const [formState, setFormState] = useState(validFormState);

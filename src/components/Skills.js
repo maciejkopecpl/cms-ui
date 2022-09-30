@@ -1,12 +1,12 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import makeStyles from "@mui/styles/makeStyles";
+import { makeStyles } from 'tss-react/mui';
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
 import SkillBar from "./SkillBar";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   header: {
     textTransform: "uppercase",
     ...theme.underscore,
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Skills(props) {
   const { items, title } = props;
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Container maxWidth={"lg"} style={{ overflow: "hidden" }}>

@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import { useTheme } from "@mui/material/styles";
-import makeStyles from "@mui/styles/makeStyles";
+import { makeStyles } from 'tss-react/mui';
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { Brightness4, Brightness7, GitHub } from "@mui/icons-material";
@@ -16,7 +16,7 @@ import { useIsMobile } from "../utils/useIsMobile";
 import { ThemeContext } from "../utils/Theme";
 import { grey } from "@mui/material/colors";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   footer: {
     backgroundColor: theme.palette.secondary.main,
     color: "white",
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Footer(props) {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { title, linkedIn, github } = props;
   const { style, toggleStyle } = useContext(ThemeContext);
   const isMobile = useIsMobile();

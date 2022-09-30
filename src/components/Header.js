@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import makeStyles from "@mui/styles/makeStyles";
+import { makeStyles } from 'tss-react/mui';
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
@@ -7,7 +7,7 @@ import { Parallax } from "react-parallax";
 import { useImageSharp } from "../utils/useImageSharp";
 import { useIsMobile } from "../utils/useIsMobile";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   header: {
     color: theme.palette.common.white,
   },
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Header(props) {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { title, subTitle, imageId } = props;
 
   const image = useImageSharp(imageId);
