@@ -80,7 +80,9 @@ export default function Home({ data }) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Container maxWidth={false} disableGutters={true}>
-            <main>{modules.map(component => buildComponent(component))}</main>
+            <main style={{ minHeight: `${modules.length * 20}em` }}>
+              {modules.map(component => buildComponent(component))}
+            </main>
             <Footer
               title={siteMetadata.linkedIn.title}
               linkedIn={siteMetadata.linkedIn.url}
