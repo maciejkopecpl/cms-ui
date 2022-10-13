@@ -25,7 +25,8 @@ export default function Map(props) {
     if (
       inView &&
       typeof window !== `undefined` &&
-      typeof window.google !== "undefined"
+      typeof window.google !== "undefined" &&
+      !loading
     ) {
       googleMapRef.current = new window.google.maps.Map(
         document.getElementById("map"),
@@ -41,7 +42,7 @@ export default function Map(props) {
         map: googleMapRef.current,
       });
     }
-  }, [latitude, longitude, style, inView]);
+  }, [latitude, longitude, style, inView, loading]);
 
   const initializeGoogleMapsApi = useCallback(() => {
     if (inView) {

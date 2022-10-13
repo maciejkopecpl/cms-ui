@@ -29,6 +29,7 @@ export default function ImageWrapper(props) {
         <Image
           src={src}
           className={classes.image}
+          style={{ background: classes.image.background }}
           imageStyle={{ height: "100%" }}
           alt={alt}
           title={alt}
