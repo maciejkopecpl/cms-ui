@@ -45,7 +45,8 @@
     "react-intersection-observer": "^9.4.0",
     "react-parallax": "^3.5.1",
     "react-typography": "^0.16.20",
-    "tss-react": "^4.3.4"
+    "tss-react": "^4.3.4",
+    "p-retry": "^5.1.1"
   },
   "devDependencies": {
     "cypress": "^10.7.0",
