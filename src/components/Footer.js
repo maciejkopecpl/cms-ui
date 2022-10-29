@@ -6,15 +6,23 @@ import { useTheme } from "@mui/material/styles";
 import { makeStyles } from "tss-react/mui";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import { Brightness4, Brightness7, GitHub } from "@mui/icons-material";
+import {
+  Brightness4,
+  Brightness7,
+  GitHub,
+  Cloud,
+  CloudOff,
+} from "@mui/icons-material";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import PropTypes from "prop-types";
 import * as React from "react";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { THEME_STYLES } from "../utils/constants";
 import { useIsMobile } from "../utils/useIsMobile";
 import { ThemeContext } from "../utils/Theme";
 import { grey } from "@mui/material/colors";
+import pRetry from "p-retry";
+import { getData } from "../utils/http";
 
 const useStyles = makeStyles()(theme => ({
   footer: {
@@ -34,6 +42,17 @@ export default function Footer(props) {
   const { style, toggleStyle } = useContext(ThemeContext);
   const isMobile = useIsMobile();
   const theme = useTheme();
+  const [cloudStatus, setCloudStatus] = useState(false);
+
+  useEffect(() => {
+    pRetry(
+      async () => getData("/actuator/health").then(() => setCloudStatus(true)),
+      {
+        retries: 3,
+        minTimeout: 2000,
+      }
+    ).catch(() => setCloudStatus(false));
+  }, []);
 
   return (
     <footer
@@ -94,6 +113,22 @@ export default function Footer(props) {
                     size="large"
                   >
                     <GitHub color="secondary" />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip
+                  title="Cloud service status"
+                  aria-label="Cloud service status"
+                >
+                  <IconButton
+                    aria-label="Cloud service status"
+                    color="secondary"
+                    size="large"
+                  >
+                    {cloudStatus ? (
+                      <Cloud color="secondary" />
+                    ) : (
+                      <CloudOff color="secondary" />
+                    )}
                   </IconButton>
                 </Tooltip>
               </Grid>
