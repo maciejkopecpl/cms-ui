@@ -38,6 +38,8 @@ jobs:
           start: yarn start
           wait-on: 'http://localhost:8000'
           wait-on-timeout: 120
+          API_KEY: ${{secrets.API_KEY}}
+          GATSBY_API_URL: ${{secrets.GATSBY_API_URL}}
         env:
           API_KEY: ${{secrets.API_KEY}}
           GATSBY_API_URL: ${{secrets.GATSBY_API_URL}}
