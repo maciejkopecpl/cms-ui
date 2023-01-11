@@ -19,7 +19,7 @@ jobs:
         env:
           GATSBY_API_URL: ${{ secrets.GATSBY_API_URL }}
         if: ${{ env.GATSBY_API_URL == '' }}
-        run: 'echo "GATSBY_API_URL missing"'
+        run: 'echo "GATSBY_API_URL missing \'${{ env.GATSBY_API_URL }}\'"'
       - name: Check secrets API_KEY
         env:
           API_KEY: ${{ secrets.API_KEY }}
@@ -39,5 +39,5 @@ jobs:
           wait-on: 'http://localhost:8000'
           wait-on-timeout: 120
         env:
-          API_KEY: ${{ secrets.API_KEY }}
-          GATSBY_API_URL: "https://pl-maciejkopec-cms.azurewebsites.net"
+          API_KEY: ${{secrets.API_KEY}}
+          GATSBY_API_URL: ${{secrets.GATSBY_API_URL}}
