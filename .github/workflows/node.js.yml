@@ -17,12 +17,12 @@ jobs:
     steps:
       - name: Check secrets
         env:
-          super_secret: ${{ secrets.GATSBY_API_URL }}
+          GATSBY_API_URL: ${{ secrets.GATSBY_API_URL }}
         if: ${{ env.GATSBY_API_URL == '' }}
         run: 'echo "GATSBY_API_URL missing"'
       - name: Check secrets 2
         env:
-          super_secret: ${{ secrets.API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
         if: ${{ env.API_KEY == '' }}
         run: 'echo "API_KEY missing"'
       - name: Setup node
