@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check secrets
+      - name: Check secrets GATSBY_API_URL
         env:
           GATSBY_API_URL: ${{ secrets.GATSBY_API_URL }}
         if: ${{ env.GATSBY_API_URL == '' }}
         run: 'echo "GATSBY_API_URL missing"'
-      - name: Check secrets 2
+      - name: Check secrets API_KEY
         env:
           API_KEY: ${{ secrets.API_KEY }}
         if: ${{ env.API_KEY == '' }}
