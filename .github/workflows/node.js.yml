@@ -34,7 +34,7 @@ jobs:
       - name: create env file
         run: |
           touch .env
-          echo GATSBY_API_URL=${{ secrets.GATSBY_API_URL }} >> .env
+          echo GATSBY_API_URL=https://pl-maciejkopec-cms.azurewebsites.net >> .env
           cat .env
       - name: Cypress run
         uses: cypress-io/github-action@v4
