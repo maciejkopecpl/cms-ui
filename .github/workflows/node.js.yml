@@ -15,29 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check secrets
-        env:
-          super_secret: ${{ secrets.GATSBY_API_URL }}
-        if: ${{ env.GATSBY_API_URL == '' }}
-        run: 'echo "GATSBY_API_URL missing"'
-      - name: Check secrets 2
-        env:
-          super_secret: ${{ secrets.API_KEY }}
-        if: ${{ env.API_KEY == '' }}
-        run: 'echo "API_KEY missing"'
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
-        with:
-            browser: chrome
-            start: yarn start
-            wait-on: 'http://localhost:8000'
-            wait-on-timeout: 120
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
-          GATSBY_API_URL: ${{ secrets.GATSBY_API_URL }}
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+          browser: chrome
+          start: yarn start
+          wait-on: 'http://localhost:8000'
+          wait-on-timeout: 120
+      env: 
+        API_KEY: ${{ secrets.API_KEY }}
+        GATSBY_API_URL: ${{ secrets.GATSBY_API_URL }}
