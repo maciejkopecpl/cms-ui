@@ -18,11 +18,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Setup Node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
           node-version: 18
     - name: Wait on
-      uses: iFaxity/wait-on-action@v1
+      uses: iFaxity/wait-on-action
       with:
         resource: ${{ vars.GATSBY_API_URL }}/actuator/health
         timeout: 300000
