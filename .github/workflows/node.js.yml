@@ -35,4 +35,4 @@ jobs:
           wait-on-timeout: 120
       env: 
         API_KEY: ${{ secrets.API_KEY }}
-        GATSBY_API_URL: ${{ env.GATSBY_API_URL }}
+        GATSBY_API_URL: ${{ vars.GATSBY_API_URL }}
