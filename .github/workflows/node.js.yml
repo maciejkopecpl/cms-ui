@@ -18,7 +18,7 @@ jobs:
     - name: Wait on
       uses: iFaxity/wait-on-action@v1
       with:
-        resource: ${{ env.GATSBY_API_URL }}/actuator/health
+        resource: https://pl-maciejkopec-cms.azurewebsites.net/actuator/health
         timeout: 300000
         verbose: true
       env:
