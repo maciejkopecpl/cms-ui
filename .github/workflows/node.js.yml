@@ -18,9 +18,11 @@ jobs:
     - name: Wait on
       uses: iFaxity/wait-on-action@v1
       with:
-        resource: ${{ secrets.GATSBY_API_URL }}/actuator/health
+        resource: ${{ env.GATSBY_API_URL }}/actuator/health
         timeout: 300000
         verbose: true
+      env:
+        GATSBY_API_URL: ${{ secrets.GATSBY_API_URL }}
     - name: Checkout
       uses: actions/checkout@v3
     - name: Cypress run
