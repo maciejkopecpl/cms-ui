@@ -19,8 +19,8 @@ jobs:
       uses: iFaxity/wait-on-action@v1
       with:
         resource: ${{ vars.GATSBY_API_URL }}/actuator/health
-#        timeout: 300000
-        timeout: 3000
+        timeout: 300000
+        interval: 5000
         verbose: true
       env:
         GATSBY_API_URL: ${{ vars.GATSBY_API_URL }}
