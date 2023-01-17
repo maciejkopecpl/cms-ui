@@ -22,9 +22,9 @@ jobs:
       with:
           node-version: 18
     - name: Wait on
-      uses: iFaxity/wait-on-action
+      uses: iFaxity/wait-on-action@v1
       with:
-        resource: ${{ vars.GATSBY_API_URL }}/actuator/health
+        resource: ${{ env.GATSBY_API_URL }}/actuator/health
         timeout: 300000
         interval: 5000
         verbose: true
