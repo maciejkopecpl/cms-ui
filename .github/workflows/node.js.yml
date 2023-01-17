@@ -15,26 +15,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
           node-version: 18
-    - name: Wait on
-      uses: iFaxity/wait-on-action@v1
-      with:
-        resource: ${{ vars.GATSBY_API_URL }}/actuator/health
-        timeout: 300000
-        interval: 5000
-        verbose: true
-    - name: Cypress run
-      uses: cypress-io/github-action@v5
-      with:
+      - name: Wait on
+        uses: iFaxity/wait-on-action@v1
+        with:
+          resource: ${{ vars.GATSBY_API_URL }}/actuator/health
+          timeout: 300000
+          interval: 5000
+          verbose: true
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
           browser: chrome
           start: yarn start
           wait-on: 'http://[::1]:8000/'
           wait-on-timeout: 120
-      env: 
-        API_KEY: ${{ secrets.API_KEY }}
-        GATSBY_API_URL: ${{ vars.GATSBY_API_URL }}
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          GATSBY_API_URL: ${{ vars.GATSBY_API_URL }}
