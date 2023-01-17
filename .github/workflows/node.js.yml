@@ -20,16 +20,14 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-          node-version: 18
+          node-version: 16
     - name: Wait on
       uses: iFaxity/wait-on-action@v1
       with:
-        resource: ${{ env.GATSBY_API_URL }}/actuator/health
+        resource: ${{ vars.GATSBY_API_URL }}/actuator/health
         timeout: 300000
         interval: 5000
         verbose: true
-      env:
-        GATSBY_API_URL: ${{ vars.GATSBY_API_URL }}
     - name: Cypress run
       uses: cypress-io/github-action@v5
       with:
