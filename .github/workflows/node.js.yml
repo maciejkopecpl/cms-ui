@@ -29,7 +29,7 @@ jobs:
         with:
           resource: ${{ env.API_URL }}/actuator/health
           timeout: 300000
-          interval: 7000
+          interval: 10000
           verbose: true
       - name: Cypress run
         uses: cypress-io/github-action@v5
