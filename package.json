@@ -46,7 +46,7 @@
     "react-parallax": "^3.5.1",
     "react-typography": "^0.16.20",
     "tss-react": "^4.5.2",
-    "p-retry": "^5.1.1"
+    "p-retry": "^5.1.2"
   },
   "devDependencies": {
     "cypress": "^12.3.0",
