@@ -21,7 +21,7 @@
     "@loadable/component": "^5.15.2",
     "@mui/icons-material": "^5.11.0",
     "@mui/lab": "^5.0.0-alpha.109",
-    "@mui/material": "^5.11.4",
+    "@mui/material": "^5.11.6",
     "@openfonts/raleway_latin-ext": "^1.44.1",
     "babel-preset-gatsby": "^3.4.0",
     "clsx": "^1.2.1",
