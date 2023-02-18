@@ -31,7 +31,7 @@
     "gatsby-plugin-material-ui": "^4.1.0",
     "gatsby-plugin-offline": "^5.25.0",
     "gatsby-plugin-robots-txt": "^1.7.1",
-    "gatsby-plugin-sharp": "^4.25.0",
+    "gatsby-plugin-sharp": "^5.6.0",
     "gatsby-plugin-sitemap": "^5.25.0",
     "gatsby-plugin-typography": "^4.24.0",
     "gatsby-source-filesystem": "^4.25.0",
@@ -42,7 +42,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intersection-observer": "^9.4.1",
+    "react-intersection-observer": "^9.4.2",
     "react-parallax": "^3.5.1",
     "react-typography": "^0.16.23",
     "tss-react": "^4.6.0",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "cypress": "^12.3.0",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.4",
     "start-server-and-test": "^1.15.3"
   },
   "repository": {
