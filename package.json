@@ -19,7 +19,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@loadable/component": "^5.15.3",
-    "@mui/icons-material": "^5.11.9",
+    "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.124",
     "@mui/material": "^5.11.10",
     "@openfonts/raleway_latin-ext": "^1.44.1",
