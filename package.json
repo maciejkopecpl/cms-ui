@@ -31,7 +31,7 @@
     "gatsby-plugin-material-ui": "^4.1.0",
     "gatsby-plugin-offline": "^6.6.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
-    "gatsby-plugin-sharp": "^5.7.0",
+    "gatsby-plugin-sharp": "^5.8.1",
     "gatsby-plugin-sitemap": "^6.8.0",
     "gatsby-plugin-typography": "^5.8.0",
     "gatsby-source-filesystem": "^5.7.0",
