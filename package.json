@@ -36,7 +36,7 @@
     "gatsby-plugin-typography": "^5.8.0",
     "gatsby-source-filesystem": "^5.9.0",
     "gatsby-source-graphql": "^5.9.0",
-    "gatsby-transformer-sharp": "^5.9.0",
+    "gatsby-transformer-sharp": "^5.10.0",
     "material-ui-image": "npm:@jy95/material-ui-image",
     "mdi-material-ui": "^7.6.0",
     "prop-types": "^15.8.1",
