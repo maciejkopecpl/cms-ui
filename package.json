@@ -34,7 +34,7 @@
     "gatsby-plugin-sharp": "^5.12.0",
     "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-typography": "^5.11.0",
-    "gatsby-source-filesystem": "^5.11.0",
+    "gatsby-source-filesystem": "^5.12.0",
     "gatsby-source-graphql": "^5.12.0",
     "gatsby-transformer-sharp": "^5.11.0",
     "material-ui-image": "npm:@jy95/material-ui-image",
