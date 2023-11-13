@@ -20,7 +20,7 @@
     "@emotion/styled": "^11.11.0",
     "@loadable/component": "^5.15.3",
     "@mui/icons-material": "^5.14.8",
-    "@mui/lab": "^5.0.0-alpha.149",
+    "@mui/lab": "^5.0.0-alpha.152",
     "@mui/material": "^5.14.8",
     "@openfonts/raleway_latin-ext": "^1.44.1",
     "babel-preset-gatsby": "^3.7.0",
