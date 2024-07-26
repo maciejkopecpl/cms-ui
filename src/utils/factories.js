@@ -5,7 +5,7 @@ import {
   Settings,
   Trophy,
   UnfoldMoreVertical,
-} from "mdi-material-ui/light/index.es";
+} from "mdi-material-ui/light/index";
 import React from "react";
 import loadable from "@loadable/component";
 

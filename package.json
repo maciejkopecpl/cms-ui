@@ -38,7 +38,7 @@
     "gatsby-source-graphql": "^5.12.0",
     "gatsby-transformer-sharp": "^5.11.0",
     "material-ui-image": "npm:@jy95/material-ui-image",
-    "mdi-material-ui": "^7.6.0",
+    "mdi-material-ui": "^7.9.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
