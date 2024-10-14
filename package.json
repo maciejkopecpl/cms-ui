@@ -16,7 +16,7 @@
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.11.5",
     "@loadable/component": "^5.15.3",
     "@mui/icons-material": "^5.14.8",
