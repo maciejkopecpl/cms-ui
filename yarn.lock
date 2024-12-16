@@ -8467,10 +8467,10 @@ map-stream@~0.1.0:
   dependencies:
     prop-types "^15.5.8"
 
-mdi-material-ui@^7.9.1:
-  version "7.9.1"
-  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-7.9.1.tgz#f28dbd6883a8c6198ca78e19c9f23728b2599226"
-  integrity sha512-13Ecd6hbYZWzY1yLCwQRGqnYzIv9HjSbRM7Vl+4GsllBY6KWv0IhCr4gVlcMGf+ahJxBH3Ba5ImZICls1Aqtyg==
+mdi-material-ui@^7.9.3:
+  version "7.9.3"
+  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-7.9.3.tgz#3a72e164d3923a7d8bc0b1c31fa0d032077bb773"
+  integrity sha512-l56RUX0tnxY+U1z6hE3cHKXwGUIGpHJLiW2papfvTB1qTegpn3iYU6sX+XBPtl+KG7Ww2RqCLAT03CNzOqeoIg==
 
 mdn-data@2.0.14:
   version "2.0.14"
