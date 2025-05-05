@@ -23,7 +23,7 @@
     "@mui/lab": "^5.0.0-alpha.152",
     "@mui/material": "^5.14.8",
     "@openfonts/raleway_latin-ext": "^1.44.1",
-    "babel-preset-gatsby": "^3.7.0",
+    "babel-preset-gatsby": "^3.14.0",
     "clsx": "^2.0.0",
     "gatsby": "^5.12.9",
     "gatsby-plugin-image": "^3.14.0",
