@@ -36,9 +36,10 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          start: yarn start
-          wait-on: 'http://[::1]:8000/'
+          start: yarn develop --host 127.0.0.1 --port 8000
+          wait-on: http://127.0.0.1:8000/
           wait-on-timeout: 150
         env:
+          CYPRESS_BASE_URL: http://127.0.0.1:8000
           API_KEY: ${{ secrets.API_KEY }}
           GATSBY_API_URL: ${{ env.API_URL }}
