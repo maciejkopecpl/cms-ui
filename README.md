@@ -1,94 +1,55 @@
 <p align="center">
   <img width="70" src="https://github.com/maciejkopecpl/cms-ui/blob/master/src/assets/favicon.png?raw=true" />
 </p>
-<h1 align="center">
-maciejkopec.pl 
-</h1>
+<h1 align="center">maciejkopec.pl</h1>
 <p align="center">
-Hobby project to explore Gatsby's capabilities. My personal simple portfolio static site built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>
+  My personal portfolio is a static site I built to explore <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>.
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/plmaciejkopec-ui/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/33d5bb48-d1c2-43da-a17d-f6b8baf06f73/deploy-status" alt="Netlify Status" />
   </a>
 </p>
-  <p align="center" style="font-style: italic;">
-Feel free to use any part from this repository.
+<p align="center">
+  <em>Feel free to reuse any part of this project under the MIT license.</em>
 </p>
 
-## 🚀 Quick start
+## Quick start
 
-1.  **Clone.**
+1. Clone the repository and install its dependencies.
 
-    Clone this repository.
+   ```sh
+   git clone https://github.com/maciejkopecpl/cms-ui.git
+   cd cms-ui
+   yarn install
+   ```
 
-    ```git
-    git clone https://github.com/maciejkopecpl/cms-ui.git
-    ```
+2. Use [empty.env](empty.env) as a template for `.env.development` and fill in the values for your environment.
 
-1.  **Build.**
+3. Start the development server and open <http://localhost:8000>.
 
-    Build the application.
+   ```sh
+   yarn develop
+   ```
 
-    ```shell
-    cd cms-ui/
-    yarn install
-    ```
+## Project structure
 
-1.  **Run**
+| Path | Purpose |
+| --- | --- |
+| `src/` | Pages, components, styles, and assets for the portfolio. |
+| `.babelrc` | Babel configuration. |
+| `.gitignore` | Patterns for files Git should ignore. |
+| `.prettierignore` and `.prettierrc` | Prettier ignore patterns and formatting settings. |
+| `empty.env` | Template for the project's environment variables. |
+| `gatsby-config.js` | Site metadata and Gatsby plugin configuration. |
+| `gatsby-node.js` | Gatsby Node API hooks for customizing the build. |
+| `package.json` | Project metadata, dependencies, and scripts. |
+| `yarn.lock` | Exact dependency versions resolved by Yarn. |
 
-    Now you should be able to run the application.
+## Backend
 
-    ```shell
-    gatsby develop
-    ```
+The portfolio gets its content from a separate CMS. See the [CMS backend repository](https://github.com/maciejkopecpl/cms).
 
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories.
-
-    .
-    ├── src
-    ├── .babelrc
-    ├── .gitignore
-    ├── .prettierignore
-    ├── .prettierrc
-    ├── LICENSE
-    ├── README.md
-    ├── empty.env
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── package-lock.json
-    └── package.json
-
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-2.  **`.babelrc`**: This file contains configuration of Babel
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierignore`**: This file tels prettier which files it should ignore.
-
-5.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-6.  **`LICENSE`**: This project is licensed under the MIT license.
-
-7.  **`README.md`**: A text file containing useful reference information about your project.
-
-8.  **`empty.env`**: A empty file containing all requires enviroment variables.
-
-9.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-10. **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-11. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-12. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-## 🏗️ Backend
-
-The backend services required by this application are available in this [CMS Backend](https://github.com/maciejkopecpl/cms).
-
-## 👨‍⚖️ License
+## License
 
 [MIT](LICENSE)
